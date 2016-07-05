@@ -1,0 +1,32 @@
+{
+	"OU": {
+		"label": "Satélite",
+		"url": "http://idecan3.grafcan.es/ServicioWMS/OrtoUrb",
+		"layersInfo": {
+			"layers": ["OU"],
+			"version": "1.1.1",
+			"format": "image/jpeg"
+		},
+		"img": "src/app-client/resources/data/baselayers/satellite.png"
+	},
+	"WMS_MTI": {
+		"label": "Topográfico",
+		"url": "http://idecan3.grafcan.es/ServicioWMS/MTI",
+		"layersInfo": {
+			"layers": ["WMS_MTI"],
+			"version": "1.1.1",
+			"format": "image/png"
+		},
+		"img": "src/app-client/resources/data/baselayers/topografico.png"
+	}, 
+	"WMS_CA": {
+		"label": "Callejero",
+		"url": "http://idecan3.grafcan.es/ServicioWMS/Callejero",
+		"layersInfo": {
+			"layers": ["WMS_CA"],
+			"version": "1.1.1",
+			"format": "image/png"
+		},
+		"img": "src/app-client/resources/data/baselayers/callejero.png"
+	}
+}

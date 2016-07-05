@@ -1,0 +1,732 @@
+{
+	"data": [{
+		"id": "layers",
+		"name": "Capas",
+		"type": "root"
+	},
+	{
+		"id": "01_puep",
+		"name": "01 Puep",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "limites",
+		"name": "Límites",
+		"type": "layers",
+		"parent": "01_puep"
+	},
+	{
+		"id": "Limite_1865",
+		"name": "1865",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1865"]	
+		}		
+	},
+	{
+		"id": "Limite_1930",
+		"name": "1930",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1930"]	
+		}		
+	},
+	{
+		"id": "Limite_1959",
+		"name": "1959",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1959"]	
+		}
+	},
+	{
+		"id": "Limite_1974",
+		"name": "1974",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1974"]	
+		}	
+	},
+	{
+		"id": "Limite_1979",
+		"name": "1979",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1979"]	
+		}
+	},
+	{
+		"id": "Limite_1992_1993",
+		"name": "1992-93",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_1992_1993"]	
+		}
+	},
+	{
+		"id": "Limite_2005",
+		"name": "2005",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_2005"]	
+		}
+	},
+	{
+		"id": "Limite_interior_actual",
+		"name": "Interior actual",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_interior_actual"]	
+		}
+	},
+	{
+		"id": "Limite_interior_anterior",
+		"name": "Interior anterior",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_interior_anterior"]	
+		}
+	},
+	{
+		"id": "Limite_Zona_II_actual",
+		"name": "Zona II actual",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_Zona_II_actual"]	
+		}
+	},
+	{
+		"id": "Limite_Zona_II_anterior",
+		"name": "Zona II anterior",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_Zona_II_anterior"]	
+		}
+	},
+	{
+		"id": "Limite_Zona_I_actual",
+		"name": "Zona I actual",
+		"type": "layer",
+		"parent": "limites",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Limite_Zona_I_actual"]	
+		}
+	},
+	{
+		"id": "Terrenos",
+		"name": "Terrenos",
+		"type": "layer",
+		"parent": "01_puep",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Terrenos"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Capa</div><div>{layer}</div></div>",
+			"<div class='form-group'><div>Código</div><div>{codigo}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{area} m<sup>2</sup></div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Usos",
+		"name": "Usos",
+		"type": "layer",
+		"parent": "01_puep",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Usos"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{area} m<sup>2</sup></div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Areas_funcionales",
+		"name": "Áreas funcionales",
+		"type": "layer",
+		"parent": "01_puep",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Areas_funcionales"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Capa</div><div>{layer}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "02_zonificacion",
+		"name": "02 Zonificación",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Zonificacion_tierra",
+		"name": "Tierra",
+		"type": "layer",
+		"parent": "02_zonificacion",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Zonificacion_tierra"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{Area} m<sup>2</sup></div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Zonificacion_marina",
+		"name": "Mar",
+		"type": "layer",
+		"parent": "02_zonificacion",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Zonificacion_marina"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{area} m<sup>2</sup></div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "03_instalaciones_electricas",
+		"name": "03 Instalaciones eléctricas",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Alumbrado",
+		"name": "Alumbrado",
+		"type": "layer",
+		"parent": "03_instalaciones_electricas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Alumbrado"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Centro origen</div><div>{origen_cen}</div></div>",
+			"<fieldset class='lighter'><legend>Tapa</legend>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conse}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Registro</legend>",
+			"<div class='form-group'><div>Tipo</div><div>{reg_tipo}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{reg_medida}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{reg_materi}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{reg_cons}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Conducto</legend>",
+			"<div class='form-group'><div>Unidad</div><div>{cond_unid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{cond_mat}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{cond_medid}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{cond_cons}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Base</legend>",
+			"<div class='form-group'><div>Tipo</div><div>{base_tipo}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{base_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{base_cons}</div></div>", 
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Alumbrado</legend>",
+			"<div class='form-group'><div>Marca</div><div>{lum_marca}</div></div>",
+			"<div class='form-group'><div>Potencia</div><div>{lum_pot}</div></div>",  
+			"<div class='form-group'><div>Conservación</div><div>{lum_cons}</div></div>",
+			"<div class='form-group'><div>Conexiones</div><div>{conexiones}</div></div>",
+			"</fieldset>"
+		]
+	},
+	{
+		"id": "Baja_tension",
+		"name": "Baja tensión",
+		"type": "layer",
+		"parent": "03_instalaciones_electricas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Baja_tension"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>", 
+			"<div class='form-group'><div>Registro</div><div>{registro}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Origen centro mando</div><div>{origen_centromando}</div></div>",
+			"<fieldset class='lighter'><legend>Tapa</legend>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_material}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conservacion}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Registro</legend>",
+			"<div class='form-group'><div>Tipo</div><div>{registro_tipo}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{registro_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{registro_material}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Conducciones</legend>",
+			"<div class='form-group'><div>Unidades</div><div>{conducciones_unidades}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{conducciones_material}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{conducciones_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conducciones_conservacion}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{observaciones}</div></div>",
+			"</fieldset>"
+		]
+	},
+	{
+		"id": "Circuito_alumbrado",
+		"name": "Circuito alumbrado",
+		"type": "layer",
+		"parent": "03_instalaciones_electricas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Circuito_alumbrado"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Longitud</div><div>{longitud}m</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>" 
+		]
+	},
+	{
+		"id": "Circuito_baja_tension",
+		"name": "Circuito baja tensión",
+		"type": "layer",
+		"parent": "03_instalaciones_electricas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Circuito_baja_tension"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{Observaciones}</div></div>",
+			"<div class='form-group'><div>Longitud</div><div>{Longitud}m</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "04_abastecimiento_aguas",
+		"name": "04 Abastecimiento de aguas",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Abastecimientos",
+		"name": "Abastecimientos",
+		"type": "layer",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Abastecimientos"],
+			"transparent": true
+		},
+		"parent": "04_abastecimiento_aguas",
+		"infoTemplate": [
+			"<div class='form-group'><div>Clase</div><div>{clase}</div></div>",
+			"<div class='form-group'><div>Zonas</div><div>{zonas}</div></div>",
+			"<div class='form-group'><div>Registro</div><div>{registro}</div></div>",
+			"<div class='form-group'><div>Subregistro</div><div>{subregistr}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<fieldset class='lighter'><legend>Tapa</legend>",
+			"<div class='form-group'><div>Medida</div><div>{tap_med}</div></div>", 
+			"<div class='form-group'><div>Material</div><div>{tap_mat}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tap_cons}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Elemento</legend>",
+			"<div class='form-group'><div>Unidad</div><div>{ele_uni}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{ele_tip}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{ele_mat}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{ele_dia}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{ele_con}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Conducto</legend>",
+			"<div class='form-group'><div>Material</div><div>{con_mat}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{con_dia}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{con_con}</div></div>",
+			"<div class='form-group'><div>Poste</div><div>{post_condu}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{obs}</div></div>",
+			"</fieldset>"
+	    ]
+	},
+	{
+		"id": "Conducciones",
+		"name": "Conducciones",
+		"type": "layer",
+		"parent": "04_abastecimiento_aguas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Conducciones"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Material</div><div>{material}</div></div>",
+			"<div class='form-group'><div>Diámetro m</div><div>{diametro_m}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Contadores",
+		"name": "Contadores",
+		"type": "layer",
+		"parent": "04_abastecimiento_aguas",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Contadores"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Código</div><div>{codigo}</div></div>",
+			"<div class='form-group'><div>Zona</div><div>{zona}</div></div>",
+			"<div class='form-group'><div>Inventario</div><div>{inventario}</div></div>",
+			"<div class='form-group'><div>Nº serie</div><div>{numero_ser}</div></div>",
+			"<div class='form-group'><div>Calibre</div><div>{calibre}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conservaci}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{situacion}</div></div>",
+			"<div class='form-group'><div>Usuario</div><div>{usuario}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"	
+		]
+	},
+	{
+		"id": "05_telecomunicaciones",
+		"name": "05 Telecomunicaciones",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Circuitos",
+		"name": "Circuitos",
+		"type": "layer",
+		"parent": "05_telecomunicaciones",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Circuitos"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Elementos",
+		"name": "Elementos",
+		"type": "layer",
+		"parent": "05_telecomunicaciones",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Elementos"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{medidas}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{situacion}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conservaci}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{utm_x} - {utm_y}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Contraincendios",
+		"name": "06 Contraincendios",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Contraincendios"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{diametro}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Descripción</div><div>{descripcion}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Viario",
+		"name": "07 Vías de servicio",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"layers": ["AutoridadPortuaria:Viario"],
+			"transparent": true
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Capa</div><div>{layer}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "08_senyalizacion",
+		"name": "08 Señalización",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Senyalizacion_horizontal_lineas",
+		"name": "Horizontal",
+		"type": "layer",
+		"parent": "08_senyalizacion",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Senyalizacion_horizontal_lineas"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Senyalizacion_verticales",
+		"name": "Vertical",
+		"type": "layer",
+		"parent": "08_senyalizacion",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Senyalizacion_verticales"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{Situacion}</div></div>",
+			"<div class='form-group'><div>Zonificación</div><div>{Zonificacion}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{Conservacion}</div></div>",
+			"<div class='form-group'><div>Altura</div><div>{Altura}m</div></div>",
+			"<div class='form-group'><div>Perfil</div><div>{Perfil_mm}</div></div>",
+			"<div class='form-group'><div>Dimensiones</div><div>{Dimensiones}</div></div>",
+			"<div class='form-group'><div>Señal</div><div>{Señal}</div></div>",
+			"<div class='form-group'><div>Código</div><div>{Codigo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Balizamiento",
+		"name": "09 Balizamiento",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Balizamiento"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Nº</div><div>{numero_int}</div></div>", 
+			"<div class='form-group'><div>Nombre</div><div>{nombre}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo_marca}</div></div>",
+			"<div class='form-group'><div>Descripción</div><div>{descripcio}</div></div>",
+			"<div class='form-group'><div>Tope</div><div>{marca_tope}</div></div>",
+			"<div class='form-group'><div>Distancia</div><div>{distancia}</div></div>",
+			"<div class='form-group'><div>Ayuda</div><div>{tipo_ayuda}</div></div>",
+			"<div class='form-group'><div>Categoría</div><div>{categoria}</div></div>",
+			"<div class='form-group'><div>Luz</div><div>{tipo_luz}</div></div>",
+			"<div class='form-group'><div>Ritmo</div><div>{ritmo}</div></div>",
+			"<div class='form-group'><div>Características</div><div>{caracteris}</div></div>",
+			"<div class='form-group'><div>Color</div><div>{color}</div></div>",
+			"<div class='form-group'><div>Periodo</div><div>{periodo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Concesiones",
+		"name": "10 Concesiones",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Concesiones"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Id</div><div>{id}</div></div>", 
+			"<div class='form-group'><div>Enlace</div><div>{Enlace}</div></div>",
+			"<div class='form-group'><div>Expediente</div><div>{Expediente}</div></div>",
+			"<div class='form-group'><div>Objeto</div><div>{Objeto}</div></div>",
+			"<div class='form-group'><div>Titular</div><div>{Titular}</div></div>",
+			"<div class='form-group'><div>Superficie</div><div>{Superficie}</div></div>",
+			"<div class='form-group'><div>Inicio</div><div>{Inicio}</div></div>",
+			"<div class='form-group'><div>Final</div><div>{Final}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{area}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Inmuebles",
+		"name": "11 Inmuebles",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Inmuebles"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Denominación</div><div>{Denominacion}</div></div>",
+			"<div class='form-group'><div>Subzona</div><div>{Subzona}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "Jardines",
+		"name": "12 Jardines",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo": {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Jardines"]
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Área</div><div>{area}</div></div>",
+			"<div class='form-group'><div>Pradera co</div><div>{pradera_co}</div></div>",
+			"<div class='form-group'><div>Pradera si</div><div>{pradera_si}</div></div>",
+			"<div class='form-group'><div>Arboles</div><div>{arboles}</div></div>",
+			"<div class='form-group'><div>Palmeras</div><div>{palmeras}</div></div>",
+			"<div class='form-group'><div>Arbustos</div><div>{arbustos}</div></div>",
+			"<div class='form-group'><div>Setos</div><div>{setos}</div></div>",
+			"<div class='form-group'><div>Catus</div><div>{cactus}</div></div>",
+			"<div class='form-group'><div>Dragos</div><div>{dragos}</div></div>",
+			"<div class='form-group'><div>Cipreces</div><div>{cipreces}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]
+	},
+	{
+		"id": "13_obras_de_defensa",
+		"name": "13 Obras de defensa",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Obras_defensa",
+		"name": "Obras de defensa",
+		"type": "layer",
+		"parent": "13_obras_de_defensa",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Obras_defensa"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Texto</div><div>{Texto}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]		
+	},
+	{
+		"id": "Secciones",
+		"name": "Secciones",
+		"type": "layer",
+		"parent": "13_obras_de_defensa",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Secciones"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Sección</div><div>{Seccion}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]	
+	},
+	{
+		"id": "Plan_de_proteccion",
+		"name": "14 Plan de protección",
+		"type": "layer",
+		"parent": "layers",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Plan_de_proteccion"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]	
+	},
+	{
+		"id": "15_batimetrias",
+		"name": "15 Batimetrías",
+		"type": "layer",
+		"parent": "layers",
+		"url": "http://sigapt.aptf.local:8080/geoserver/gwc/service/wms",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Batimetrias"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Profundidad</div><div>{isobata}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]		
+	},
+	{
+		"id": "16_saneamiento",
+		"name": "16 Saneamiento",
+		"type": "folder",
+		"parent": "layers"
+	},
+	{
+		"id": "Sanea_conducciones",
+		"name": "Conducciones",
+		"type": "layer",
+		"parent": "16_saneamiento",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Sanea_conducciones"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
+		]		
+	},
+	{
+		"id": "Sanea_elementos",
+		"name": "Elementos",
+		"type": "layer",
+		"parent": "16_saneamiento",
+		"layersInfo" : {
+			"transparent": true,
+			"layers": ["AutoridadPortuaria:Sanea_elementos"]	
+		},
+		"infoTemplate": [
+			"<div class='form-group'><div>Nº registro</div><div>{num_regist}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Nº registro</div><div>{num_regist}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<fieldset class='lighter'><legend>Tapa</legend>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conse}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Registro</legend>",
+			"<div class='form-group'><div>Tipo</div><div>{reg_tipo}</div></div>",
+			"<div class='form-group'><div>Altura</div><div>{reg_altcm}cm</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{reg_medcm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{reg_materi}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{reg_conser}</div></div>",
+			"</fieldset>",
+			"<fieldset class='lighter'><legend>Conducto</legend>",
+			"<div class='form-group'><div>Medida</div><div>{cond_medmm}mm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{cond_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{cond_cons}</div></div>",
+			"</fieldset>"
+		]		
+	}]
+}

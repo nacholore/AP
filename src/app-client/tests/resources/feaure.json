@@ -1,0 +1,107 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Alumbrado.1178",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.227523622879826,
+          28.483142676509566
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "tipo": "ARQUETA",
+        "origen_cen": "DARSENA ESTE 6",
+        "tapa_medid": "40X40 / 40X40",
+        "tapa_mater": "ACERO",
+        "tapa_conse": "BIEN",
+        "reg_tipo": "CAJON",
+        "reg_medida": "NO ABRE/NO ABRE",
+        "reg_materi": "",
+        "reg_cons": "",
+        "cond_unid": "",
+        "cond_mat": "",
+        "cond_medid": "",
+        "cond_cons": "",
+        "base_tipo": "",
+        "base_mater": "",
+        "base_cons": "",
+        "lum_marca": "",
+        "lum_pot": "",
+        "lum_cons": "",
+        "conexiones": "",
+        "png": "arqueta",
+        "foto1": "http://sigapt.aptf.local/media/03_INSTALACIONES_ELECTRICAS/Tenerife/Fotos/Electricidad_1469_3.JPG",
+        "foto2": "",
+        "foto3": "",
+        "foto4": "",
+        "x": 379844,
+        "y": 3151338,
+        "fechaalta": 20080115,
+        "fechabaja": 99999999,
+        "obid": 1469,
+        "tipoid": 3,
+        "zonaid": 8,
+        "puertoid": 1,
+        "Puerto": "Santa Cruz de Tenerife"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Alumbrado.1179",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.227511779029207,
+          28.483154575287994
+        ]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "tipo": "COLUMNA SENCILLA",
+        "origen_cen": "DARSENA ESTE 6",
+        "tapa_medid": "",
+        "tapa_mater": "",
+        "tapa_conse": "",
+        "reg_tipo": "",
+        "reg_medida": "",
+        "reg_materi": "",
+        "reg_cons": "",
+        "cond_unid": "1",
+        "cond_mat": "PVC",
+        "cond_medid": "50",
+        "cond_cons": "BIEN",
+        "base_tipo": "COLUMNA",
+        "base_mater": "ACERO GALVANIZADO",
+        "base_cons": "BIEN",
+        "lum_marca": "SOCELEC",
+        "lum_pot": "250W",
+        "lum_cons": "BIEN",
+        "conexiones": "BIEN",
+        "png": "columna_1lum",
+        "foto1": "http://sigapt.aptf.local/media/03_INSTALACIONES_ELECTRICAS/Tenerife/Fotos/Electricidad_1470_2.JPG",
+        "foto2": "http://sigapt.aptf.local/media/03_INSTALACIONES_ELECTRICAS/Tenerife/Fotos/Electricidad_1470_4.JPG",
+        "foto3": "http://sigapt.aptf.local/media/03_INSTALACIONES_ELECTRICAS/Tenerife/Fotos/Electricidad_1470_5.JPG",
+        "foto4": "",
+        "x": 379845,
+        "y": 3151340,
+        "fechaalta": 20080115,
+        "fechabaja": 99999999,
+        "obid": 1470,
+        "tipoid": 3,
+        "zonaid": 8,
+        "puertoid": 1,
+        "Puerto": "Santa Cruz de Tenerife"
+      }
+    }
+  ],
+  "crs": {
+    "type": "EPSG",
+    "properties": {
+      "code": "4326"
+    }
+  }
+}

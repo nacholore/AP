@@ -1,0 +1,19 @@
+{
+	"name": "app-client",
+	"author": "Ignacio Lorenzo Garcia",
+	"version": "1.0.0",
+	"dependencies": {
+		"dojo": "~1.9",
+		"dijit": "~1.9",
+		"dojox": "~1.9"
+	},
+	"main": "main",
+	"licenses": [
+		{
+			"type": "BSD",
+			"url": "https://github.com/kitsonk/dote-node-boilerplate/blob/master/LICENSE"
+		}
+	],
+	"homepage": "https://github.com/kitsonk/dote-node-boilerplate/",
+	"dojoBuild": "package.js"
+}
