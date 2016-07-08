@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Puertos de Tenerife</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <link type="text/css" rel="stylesheet" href="cbtree/themes/dbootstrap/dbootstrap.css">
+    <link rel="stylesheet" href="app-client/resources/css/global.css">
+    <link rel="stylesheet" href="dgrid/css/dgrid.css">
+
+    <script type="text/javascript">
+        var geoServerUrl = "http://192.168.1.129:8080/geoserver/";
+        var basePath = "/"
+        //8080/geoserver/pdf/info.json
+        var dojoConfig = {
+        	basePath: basePath,
+            isDebug: true,
+            async: 1,
+            cacheBust: 1,
+            proxy: "http://localhost:3000/proxy?",
+            pathLayers: basePath + "app-client/resources/data/",
+            geoserver: {
+                wms: geoServerUrl + "AutoridadPortuaria/wms",
+                print: geoServerUrl + "pdf/info.json",
+                cache: geoServerUrl + "gwc/service/wms"
+            },
+            geo: "http://192.168.1.129:8080/geoserver/",
+            //geoserver: "http://192.168.1.129:8080/geoserver/AutoridadPortuaria/wms",
+            geoservercache: "http://192.168.1.129:8080/geoserver/gwc/service/wms",
+            //geoserver: "http://sigapt.aptf.local:8080/geoserver/AutoridadPortuaria/wms",    
+            //geoservercache: "http://sigapt.aptf.local:8080/geoserver/gwc/service/wms",      
+            locale: 'es'
+        };
+    </script>
+    <script src="dojo/dojo.js"></script>
+    <script src="openlayers/OpenLayers.debug.js"></script>
+</head>
+<body class="dbootstrap">
+    <script src="app-client/main.js"></script>
+</body>
+</html>

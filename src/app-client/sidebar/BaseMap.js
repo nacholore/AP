@@ -61,7 +61,7 @@ define([
 
 		_loadData: function() {
 			var self = this;
-			xhr(dojoConfig.pathLayers + "BaseLayers.json", {
+			xhr("/conf/mapas_base.json", {
 				handleAs: "json"
 			}).then(function(data) {
 				self._store = new Memory(data);
@@ -74,7 +74,7 @@ define([
 			when(this._store.query({}), function(results) {
 				arrayUtil.forEach(results, function(data) {
 					var itemHtml = lang.replace("div.baselayerItemContainer.shadow" + 
-						"[data-basemap-id={id}][style=background:url({img})]" , data);
+						"[data-basemap-id={id}][style=background:url('/resources/img/{img}')]" , data);
 					var labelHtml = lang.replace("span.baselayerItemLabel" + 
 						"[alt={label}][title={label}]", data);
 					var basemapNode = put(self.containerNode, itemHtml); 

@@ -16,6 +16,7 @@ require([
 	"app-client/sidebar/LayersTree",
 	"app-client/sidebar/BaseMap",
 	"app-client/sidebar/Legend",
+	"app-client/sidebar/Search",
 	"app-client/map/Map",
 	"dojo/ready"
 ], function(
@@ -24,8 +25,9 @@ require([
 		ContentPane,
 		AccordionContainer,
 		LayersTree,
-		Legend,
 		BaseMap,
+		Legend,
+		Search,
 		Map,
 		ready
 	) {
@@ -69,6 +71,11 @@ require([
 
 		// Widget para seleccionar las capas disponibles
 		cpSidebar.addChild(new LayersTree({
+			map: cpMap.map
+		}));
+
+				// Widget para cambiar el mapa base
+		cpSidebar.addChild(new Search({
 			map: cpMap.map
 		}));
 
