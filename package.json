@@ -1,5 +1,34 @@
 {
+  "name": "AP",
+  "version": "0.1.0",
+  "author": "Ignacio Lorenzo García",
+  "description": "Visor GIS",
+  "contributors": [
+    {
+      "name": "Ignacio Lorenzo García",
+      "email": "nacholore@gmail.com"
+    }
+  ],
+  "repositories": {
+    "type": "git",
+    "url": "https://github.com/nacholore/AP.git"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "jade": "^1.11.0"
-  }
+    "express": "4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "main": "server",
+  "license": "ISC",
+  "readmeFilename": "README.md",
+  "dojoBuild": "app.profile.js"
 }
