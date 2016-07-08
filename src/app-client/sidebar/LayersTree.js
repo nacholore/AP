@@ -37,6 +37,7 @@ define([
 ) {
 	return declare([ContentPane], {
 		title: "Capas",
+		iconClass: "fa fa-sitemap",
 		map: null,
 		_store: null,
 		_model:null,

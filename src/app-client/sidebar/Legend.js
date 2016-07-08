@@ -32,6 +32,7 @@ define([
 	return declare([_LayoutWidget], {
 		title: "Leyenda",
 		"class": "legendWidget",
+		iconClass: "fa fa-list",
 		map: null,
 		widthSymb: 15,
 		heightSymb: 15,

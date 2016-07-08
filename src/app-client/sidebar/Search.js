@@ -14,6 +14,7 @@ define([
 	"dojo/_base/lang",
 	"dijit/layout/BorderContainer",
 	"dijit/layout/ContentPane",
+	"dijit/form/TextBox",
     "dgrid/Grid",
     'dojo/dom-construct',
     "dgrid/extensions/DijitRegistry"
@@ -22,28 +23,40 @@ define([
 	lang,
 	BorderContainer,
 	ContentPane,
+	TextBox,
 	Grid,
 	domConstruct,
 	DijitRegistry
 ) {
 	return declare([BorderContainer], {
 		title: "Buscador",
+		iconClass: "icon-search",
 
 		renderRow: function (obj) {
-			// function used for renderRow for gallery view (large tiled thumbnails)
+
 			return domConstruct.create('div', {
-				innerHTML: '<div class="icon" style="background-image:url(resources/' +
-					obj.icon + '-128.png);">&nbsp;</div>' +
-					'<span class="zoomToFeature"><i class="icon-map-marker" aria-hidden="true"></i></span>' +
-					'<div class="name">' + obj.label + '</div>'
+				innerHTML: '<div class="featureRow"><div class="left">' + 
+								obj.label +
+						   '</div>' +
+						   // Icono de zoom
+						   '<div class="right zoomToFeature"><i class="icon-map-marker" aria-hidden="true"></i></div></div>'
 			});
 		},
 
 		createSearchBox: function() {
-			this.addChild(new ContentPane({
+			this.textBoxSearch = new TextBox({
+				placeHolder: "Texto a buscar",
+				style: "width:  calc(100% - 4px)"
+			});
+			
+			var textCP = new ContentPane({
 				region: "top",
-				style: "border: 1px solid green"
-			}))
+				style: "padding: 10px 0"
+			});
+
+			textCP.addChild(this.textBoxSearch);
+
+			this.addChild(textCP);
 		},
 
 		createResultList: function() {

@@ -39,6 +39,7 @@ define([
 ) {
 	return declare([ContentPane], {
 		title: "Mapa base",
+		iconClass: "fa fa-map",
 
 
 		_store: null,

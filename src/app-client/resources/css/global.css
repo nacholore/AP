@@ -54,7 +54,7 @@ body * {
 
 .banner {
   background: url('banner.png') no-repeat;
-  height: 55px;
+  background-position: center;
 }
 
 .full-height {
@@ -366,4 +366,35 @@ fieldset.lighter {
   border-radius: 5px;
   margin: 5px 0px;
   width: 100%;
+}
+
+.dgrid .dgrid-row:hover {
+
+}
+
+.dgrid-content .dgrid-row .featureRow {
+  min-height: 40px;
+  line-height: 40px;
+  padding: 5px 0px 5px 15px;
+}
+
+.featureRow .left {
+  width: 89%;
+  float: left;
+}
+
+.featureRow .right {
+  width: 10%;
+  float: right;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+.sidebar .dijitAccordionTitle .dijitIcon {
+  float: right;
+}
+
+.dgrid-scroller {
+  overflow-y: auto !important;
 }

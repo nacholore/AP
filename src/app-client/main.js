@@ -55,7 +55,8 @@ require([
 
 		// Menú de navegación
 		var cpSidebar = AccordionContainer({
-			region: "center"
+			region: "center",
+			class: "sidebar"
 		});
 		bcSidebar.addChild(cpBanner);
 		bcSidebar.addChild(cpSidebar);

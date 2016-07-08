@@ -127,7 +127,7 @@ define([
 			this.map.addControl(this._controls.fullextent);
 			this.map.addControl(this._controls.dragPan);
 			this._controls.query = new OpenLayers.Control.WMSGetFeatureInfo({
-				url: dojoConfig.geoserver,
+				url: "conf/puertos.json",
 				title: 'Identify features by clicking',
 				queryVisible: true,
 				infoFormat: "application/json",
@@ -203,7 +203,7 @@ define([
 				}
 			}; 
 			var self = this;
-			xhr(dojoConfig.pathLayers + "Layers.json", {
+			xhr("conf/capas.json", {
 				handleAs: "json"
 			}).then(function(data) {
 				self._layers = new Memory(data);
