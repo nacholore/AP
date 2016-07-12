@@ -1,13 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: HomePage.js
- * Descripción: Crea la página principal de la aplicación
- *
- */
 require([
 	"dbootstrap/main",
 	"dijit/layout/BorderContainer",

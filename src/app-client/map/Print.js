@@ -1,14 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 15/03/2014
- *
- * Nombre: Print.js
- * Descripción: Crea un widget para imprimir el mapa utilizando
- *		el plugins map fish print
- *
- */
 define([
 	"dojo/_base/lang",
 	"dojo/_base/array",

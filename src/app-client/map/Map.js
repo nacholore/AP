@@ -1,14 +1,3 @@
-/*
- * 
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/03/2014
- *
- * Nombre: Map.js
- * Descripción: Genera un mapa utilizando la librería de javascript
- * OpenLayers.
- * 
- */
 define([
 	"dojo/_base/declare",
 	"dojo/on",

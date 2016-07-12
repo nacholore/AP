@@ -1,14 +1,3 @@
-/*
- * 
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: MapWidget.js
- * Descripción: Genera un mapa utilizando la librería de javascript
- * OpenLayers.
- * 
- */
 define([
 	"dojo/_base/declare",
 	"dojo/_base/lang",

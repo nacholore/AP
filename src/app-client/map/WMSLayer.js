@@ -1,16 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: LayersWidget.js
- * Descripción: Crea un widget donde muestra un árbol
- *		con todas las capas disponibles. Permite
- *		activar o desactivar su visualización
- *		individualmente.
- *
- */
 define([
 	"dojo/_base/declare",
 	"dojo/_base/array",

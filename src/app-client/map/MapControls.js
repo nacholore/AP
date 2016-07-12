@@ -1,15 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: MapControlsWidget.js
- * Descripción: Crea un widget donde muestra varios
- * 		botones con los que manejar los controles
- * 		añadidos al mapaun árbol
- *
- */
 define([
 	"dojo/_base/array",
 	"dojo/_base/lang",

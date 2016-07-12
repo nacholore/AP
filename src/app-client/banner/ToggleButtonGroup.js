@@ -1,14 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: ToggleButtonGroup.js
- * Descripción: Agrupa varios ToggleButton y
- * 		solo permite seleccionar uno.
- *
- */
 define([
 	"dojo/_base/declare",
 	"dojo/on",

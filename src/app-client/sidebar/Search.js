@@ -1,14 +1,3 @@
-/*
- *
- * Autor: Ignacio Lorenzo García
- * Email: nacholore@gmail.com
- * Fecha de creación: 03/06/2013
- *
- * Nombre: BaseLayersWidget.js
- * Descripción: Crea un widget donde muestra las
- *		diferentes capas base que se pueden usar.
- *
- */
 define([
 	"dojo/_base/declare",
 	"dojo/_base/lang",
