@@ -220,7 +220,7 @@ define([
 			this.inherited(arguments);
 
 			this._action = new OpenLayers.Control.WMSGetFeatureInfo({
-				url: dojoConfig.geoserver.wms,
+				url: "/geoserver",
 				title: 'Identify features by clicking',
 				queryVisible: true,
 				infoFormat: "application/json",

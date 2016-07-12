@@ -20,7 +20,7 @@ define([
 	return declare([ComboButton], {
 		map: null,
 		iconClass: "icon-print",
-		urlService: dojoConfig.proxy + dojoConfig.geoserver.print,
+		urlService: "/geoserver/pdf/info.json",
 		createURL: "",
 		layouts: null,
 		scales: null,

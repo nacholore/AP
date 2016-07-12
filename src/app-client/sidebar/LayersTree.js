@@ -95,7 +95,7 @@ define([
 						// La capa no existe
 						var layer = new WMSLayer({
 							layerId: item.id,
-							url: item.url || dojoConfig.geoserver.wms,
+							url: item.url || "geoserver/AutoridadPortuaria/wms",
 							opacity: 0.9,
 							name: item.name,
 							infoTemplate: item.infoTemplate,

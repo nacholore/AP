@@ -1,0 +1,23 @@
+{
+	"development": {
+		"logging": {
+			"enabled": 0
+		},
+		"repoInfo": {
+			"basePath": "refdocs",
+			"rootUrl": "/",
+			"title": "Dojo Toolkit Reference Guide",
+			"copyright": "Copyright &copy; Dojo Toolkit 2004-2013",
+			"cdn": "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/",
+			"bugs": "https://github.com/kitsonk/dojoment/issues",
+			"feedback": ""
+		},
+		"port": 3000,
+		"libRoot": "src",
+		"git": {
+			"pullEnabled": 0,
+			"updateUrl": "pull",
+			"updateKey": ""
+		}
+	}
+}
