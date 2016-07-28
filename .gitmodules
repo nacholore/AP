@@ -19,3 +19,12 @@
 [submodule "src/dgrid"]
 	path = src/dgrid
 	url = https://github.com/SitePen/dgrid.git
+[submodule "src/leaflet_navbar"]
+	path = src/leaflet_navbar
+	url = https://github.com/davidchouse/Leaflet.NavBar.git
+[submodule "srr/leaflet-measure"]
+	path = srr/leaflet-measure
+	url = https://github.com/ljagis/leaflet-measure.git
+[submodule "src/leaflet-measure"]
+	path = src/leaflet-measure
+	url = https://github.com/ljagis/leaflet-measure.git

@@ -1,21 +1,37 @@
 define([
-	"dojo/_base/declare",
-	"dijit/form/Button"
+	"dojo/_base/declare"
+	, "leaflet"
+	, "dijit/_WidgetBase"
+	, "L-navBar"
+	, "L-measure"
 ], function (
-	declare,
-	Button
+	declare
+	, L
+	, _WidgetBase
 ) {
-	return declare([Button], {
+	return declare(_WidgetBase,{
 		// Mapa
 		// map: null,
-		iconClass: "icon-home",
-
-		onClick: function(val) {
-			this.map.zoomToMaxExtent();
-		},
 
 		postCreate: function () {
 			this.inherited(arguments);
+			this.addHome();
+			this.addMeasureTools();
+		},
+
+		addHome: function() {
+			L.control.navbar().addTo(this.map.map);		
+		},
+
+		addMeasureTools: function() {
+			L.control.measure({
+				position: 'topright',
+				primaryLengthUnit: 'meters', 
+				secondaryLengthUnit: 'kilometers',
+				primaryAreaUnit: 'sqmeters', 
+				secondaryAreaUnit: 'hectares',
+				localization: 'es'
+			}).addTo(this.map.map);
 		}
 	});
 });

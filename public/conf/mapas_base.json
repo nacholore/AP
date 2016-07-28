@@ -2,6 +2,7 @@
 	"data": [{
 		"id": "OU",
 		"label": "Satélite",
+		"default": true,
 		"url": "http://idecan3.grafcan.es/ServicioWMS/OrtoUrb",
 		"layersInfo": {
 			"layers": ["OU"],

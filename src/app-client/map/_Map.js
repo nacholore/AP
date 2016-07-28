@@ -1,27 +1,51 @@
 define([
-	"dojo/_base/declare",
-	"dojo/_base/lang",
-	"dojo/_base/array",
-	"dojo/Evented",
-	"dijit/layout/ContentPane",
-	"dijit/layout/_LayoutWidget",
-	"dojo/store/Observable",
-	"dojo/store/Memory"
+	"dojo/_base/declare"
+	, "dojo/_base/lang"
+	, "dojo/_base/array"
+	, "dojo/Evented"
+	, "dijit/layout/ContentPane"
+	, "dijit/layout/_LayoutWidget"
+	, "dojo/store/Observable"
+	, "dojo/store/Memory"
+	, "leaflet"
 ], function (
-	declare,
-	lang,
-	arrayUtils,
-	Evented,
-	ContentPane,
-	_LayoutWidget,
-	Observable,
-	Memory
+	declare
+	, lang
+	, arrayUtils
+	, Evented
+	, ContentPane
+	, _LayoutWidget
+	, Observable
+	, Memory
+	, L
 ) {
 	return declare([_LayoutWidget, Evented], {
 		map: null,
-		
 		layers: null,
-		_getLayersAttr: function() {
+
+		buildMap: function() {
+
+			this.map = L.map(this.domNode, {
+				 	center: [28.5, -16.0],
+					doubleClickZoom: false,
+					attributionControl: false,
+    				zoom: 13,
+					crs: L.CRS.EPSG4326
+					//maxBounds: L.latLngBounds(L.latLng(-85, -180), L.latLng(85, 180))
+			}); 
+
+//			this.map = new OpenLayers.Map(this.domNode, this.spatialRef);
+/*			this.map.addControls([
+				new OpenLayers.Control.OverviewMap(),
+				new OpenLayers.Control.Navigation(),
+				new OpenLayers.Control.ScaleLine({
+					maxWidth: 250
+				})
+			]);*/
+		},
+
+		
+ 		_getLayersAttr: function() {
 			return this.layers.query(function(layer){
 					return layer.visible === true;
 				}, {sort: [{attribute: "baseLayer", descending: true}]});
@@ -31,12 +55,14 @@ define([
 		},
 
 		_addLayer: function(layer) {
-			this.map.addLayer(layer.get("olLayer"));
-			if (!layer.baseLayer) this.emit("addLayer", layer);
+			layer.addTo(this.map)
+			
+			//if (!layer.baseLayer)
+			//	this.emit("addLayer", layer);
 		},
 
 		_removeLayer: function(layer) {
-			this.map.removeLayer(layer.get("olLayer"));
+//			this.map.removeLayer(layer.get("olLayer"));
 			if (!layer.baseLayer) this.emit("removeLayer", layer);
 		},
 
@@ -54,9 +80,9 @@ define([
 			if (this.baseLayer) {
 				this.layers.remove(this.baseLayer.layerId);
 			} else {
-				this.map.zoomToMaxExtent();
+//				this.map.zoomToMaxExtent();
 			}
-			this.map.setBaseLayer(layer.get("olLayer"));
+//			this.map.setBaseLayer(layer.get("olLayer"));
 			this._set("baseLayer", layer);
 			this.emit("basemap-change", layer);
 
@@ -89,39 +115,27 @@ define([
 			});
 		},
 
-		// Construye el mapa
-		buildMap: function() {
-			this.map = new OpenLayers.Map(this.domNode, this.spatialRef);
-			this.map.addControls([
-				new OpenLayers.Control.OverviewMap(),
-				new OpenLayers.Control.Navigation(),
-				new OpenLayers.Control.ScaleLine({
-					maxWidth: 250
-				})
-			]);
-		},
-
 		getLayer: function(/* string */ id) {
 			return this.layers.get(id);
 		},
 
 		restrictedExtent: null,
 		_setRestrictedExtentAttr: function(bounds) {
-			this.map.setOptions({
+/*			this.map.setOptions({
 				restrictedExtent: bounds
-			});
+			});*/
 			this.restrictedExtent = bounds;
 			this.emit("restrictedExtent-change", bounds);
 		},
 
 		zoomToMaxExtent: function() {
-			this.map.zoomToMaxExtent();
+//			this.map.zoomToMaxExtent();
 			this.emit("zoom-change");
 		},
 
 		// Cambia la restricción del extent
 		_changeBoudingBox: function(item) {
-			this.map.setOptions({restrictedExtent: item.bounds});
+//			this.map.setOptions({restrictedExtent: item.bounds});
 		},
 
 		_getAttrsOL: function() {
@@ -140,7 +154,7 @@ define([
 		},
 
 		resize: function() {
-			this.map.updateSize();
+//			this.map.updateSize();
 		}
 	});
 });

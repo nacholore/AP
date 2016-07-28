@@ -22,7 +22,7 @@ require([
 		ready
 	) {
 	ready(function() {
-		 OpenLayers.ProxyHost = "/proxy?";
+
 		// create a BorderContainer as the top widget in the hierarchy
 		var bc = new BorderContainer({
 			style: "width: 100%; height: 100%;"
@@ -60,12 +60,12 @@ require([
 		});
 		bc.addChild(cpMap);
 
-		// Widget para seleccionar las capas disponibles
+	/*	// Widget para seleccionar las capas disponibles
 		cpSidebar.addChild(new LayersTree({
 			map: cpMap.map
-		}));
+		}));*/
 
-				// Widget para cambiar el mapa base
+		// Widget para cambiar el mapa base
 		cpSidebar.addChild(new Search({
 			map: cpMap.map
 		}));
@@ -75,10 +75,11 @@ require([
 			map: cpMap.map
 		}));
 
+/*
 		// Widget para cambiar el mapa base
 		cpSidebar.addChild(new Legend({
 			map: cpMap.map
-		}));
+		}));*/
 		
 		bc.placeAt(document.body);
 		bc.startup();

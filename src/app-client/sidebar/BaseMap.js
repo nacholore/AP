@@ -29,19 +29,17 @@ define([
 	return declare([ContentPane], {
 		title: "Mapa base",
 		iconClass: "fa fa-map",
-
+		optionsBaseMap: {
+			basemap: true
+		},
 
 		_store: null,
 
 		_changeBaseMap: function(idLayer) {
-			var item = this._store.get(idLayer);
-			// La capa no existe
-			var layer = new WMSLayer({
-				layerId: item.id,
-				url: item.url || "/geoserver/AutoridadPortuaria/wms",
-				baseLayer: true,
-				layersInfo: item.layersInfo
-			});
+			var item = this._store.get(idLayer),
+				layer = L.tileLayer.wms(item.url || "/geoserver/AutoridadPortuaria/wms", 
+					lang.mixin(item.layersInfo, this.optionsBaseMap);
+
 			this.map.addLayer(layer);
 		},
 
@@ -64,15 +62,18 @@ define([
 			when(this._store.query({}), function(results) {
 				arrayUtil.forEach(results, function(data) {
 					var itemHtml = lang.replace("div.baselayerItemContainer.shadow" + 
-						"[data-basemap-id={id}][style=background:url('/resources/img/{img}')]" , data);
-					var labelHtml = lang.replace("span.baselayerItemLabel" + 
-						"[alt={label}][title={label}]", data);
-					var basemapNode = put(self.containerNode, itemHtml); 
-					put(basemapNode, labelHtml, data.label); 
-						
+							"[data-basemap-id={id}][style=background:url('/resources/img/{img}')]" , data),
+						labelHtml = lang.replace("span.baselayerItemLabel" + 
+							"[alt={label}][title={label}]", data),
+						basemapNode = put(self.containerNode, itemHtml);
+
+					put(basemapNode, labelHtml, data.label);		
 					on(basemapNode, "click", lang.hitch(self, self._onChangeBaseMap));
+					
+					if (data.default)
+						self._changeBaseMap(data.id);
 				});
-				self._changeBaseMap(results[0].id);
+				
 			});
 		},
 		

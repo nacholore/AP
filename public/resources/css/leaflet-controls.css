@@ -1,0 +1,24 @@
+.leaflet-control-navbar-fwd {
+background-image: url("../img/icon/arrow-right_000000_14.png");
+}
+
+.leaflet-control-navbar-back {
+background-image: url("../img/icon/arrow-left_000000_14.png");
+}
+
+.leaflet-control-navbar-home {
+background-image: url("../img/icon/home_000000_14.png");
+}
+
+
+.leaflet-control-navbar-fwd-disabled {
+background-image: url("../img/icon/arrow-right_bbbbbb_14.png");
+}
+
+.leaflet-control-navbar-back-disabled {
+background-image: url("../img/icon/arrow-left_bbbbbb_14.png");
+}
+
+.leaflet-control-navbar-home-disabled {
+background-image: url("../img/icon/home_bbbbbb_14.png");
+}
