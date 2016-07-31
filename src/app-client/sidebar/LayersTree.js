@@ -7,7 +7,7 @@ define([
 	"dijit/layout/ContentPane",
 	"cbtree/Tree",
 	"cbtree/model/TreeStoreModel",
-	"app-client/map/WMSLayer",
+	"app-client/map/Layer",
 	"cbtree/store/Hierarchy",
 	"cbtree/store/extensions/Ancestry"
 ], function (
@@ -19,7 +19,7 @@ define([
 	ContentPane,
 	Tree,
 	TreeStoreModel,
-	WMSLayer,
+	Layer,
 	Hierarchy
 ) {
 	return declare([ContentPane], {
@@ -66,7 +66,7 @@ define([
 				lang.hitch(this, this._onSelectingLayer));
 		},
 
-				// Evento que se lanza cuando se selecciona o deselecciona una capa
+		// Evento que se lanza cuando se selecciona o deselecciona una capa
 		// en el árbol
 		_onSelectingLayer: function(node, widget, evt) {
 			
@@ -85,24 +85,10 @@ define([
 
 				// Se descartan los nodos carpetas
 				if (item.type === "layer") {
-					var layer = this.map.getLayer(item.id);
-
-					if (layer) {
-						// La capa está creada y cargada en el mapa
-						layer.set("visible", newState);
-
-					} else {
-						// La capa no existe
-						var layer = new WMSLayer({
-							layerId: item.id,
-							url: item.url || "geoserver/AutoridadPortuaria/wms",
-							opacity: 0.9,
-							name: item.name,
-							infoTemplate: item.infoTemplate,
-							layersInfo: item.layersInfo
-						});
-						this.map.addLayer(layer);
-					}
+					// La capa no existe
+					var layer = new Layer(item);
+					console.debug(layer);
+					this.map.addLayer(layer);
 				}
 			}, this);
 		}

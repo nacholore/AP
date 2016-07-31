@@ -7,13 +7,14 @@ define([
 	, "dojo/request/xhr"
 	, "dijit/form/Select"
 	, "app-client/map/Home"
+	, "app-client/map/Print"
 /*	, "dojo/on"
 
 
 
 
 	, "app-client/map/QueryFeature"
-	, "app-client/map/Print"
+
 
 
 	, "dojo/json"
@@ -27,13 +28,14 @@ define([
 	, xhr
 	, Select
 	, Home
+	, Print
 	/*, on	
 
 
 
 
 	, QueryFeature
-	, Print
+	
 
 
 	, JSON
@@ -60,13 +62,12 @@ define([
 				self.config = conf;
 				self._createToolbar();
 			});
+
 		},
 
 		_createMap: function() {
 			this.map = new _Map({
 			}, this.mapNode);
-
-			//this.mapOL = this.map.map;
 
 			new Home({
 				map: this.map,

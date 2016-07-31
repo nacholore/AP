@@ -60,10 +60,10 @@ require([
 		});
 		bc.addChild(cpMap);
 
-	/*	// Widget para seleccionar las capas disponibles
+		// Widget para seleccionar las capas disponibles
 		cpSidebar.addChild(new LayersTree({
 			map: cpMap.map
-		}));*/
+		}));
 
 		// Widget para cambiar el mapa base
 		cpSidebar.addChild(new Search({

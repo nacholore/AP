@@ -23,6 +23,9 @@ var dojoConfig = {
 			location: "leaflet-measure/dist/",
 			main: "leaflet-measure"
 		},{
+			name: "L-notTiled",
+			location: "leaflet-notiled/"
+		},{
 			name: "cbtree"
 		},{
 			name: "put-selector"

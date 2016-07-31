@@ -1,29 +1,61 @@
 define([
 	"dojo/_base/declare"
 	, "dojo/_base/lang"
-	, "dojo/_base/array"
 	, "dojo/Evented"
-	, "dijit/layout/ContentPane"
 	, "dijit/layout/_LayoutWidget"
-	, "dojo/store/Observable"
 	, "dojo/store/Memory"
 	, "leaflet"
 ], function (
 	declare
 	, lang
-	, arrayUtils
 	, Evented
-	, ContentPane
 	, _LayoutWidget
-	, Observable
 	, Memory
 	, L
 ) {
 	return declare([_LayoutWidget, Evented], {
 		map: null,
 		layers: null,
+		baselayer: null,
 
-		buildMap: function() {
+		constructor: function() {
+			lang.mixin(this, arguments);
+
+			this.layers = new Memory({
+						data: []
+					});
+
+			this.on("add-layer", this._addLayer);
+			this.on("remove-layer", this._removeLayer);
+			this.on("change-baselayer", this._changeBaselayer);
+		},
+
+		addLayer: function(layer) {
+			if (!this.layers.get(layer.id)) {
+				this.layers.add(layer);
+
+				if (!layer.isBaseLayer()) {
+					this.emit("add-layer", layer)
+				} else {
+					if (!this.baselayer || this.baselayer && !this.baselayer.equalTo(layer))
+						this.emit("change-baselayer", layer);
+				}
+			}
+		},
+
+		removeLayer: function(layer) {
+			if (this.layers.get(layer.id)) {
+				this.layers.remove(layer.id);
+				this.emit("remove-layer", layer);
+			}
+		},
+
+		postCreate: function () {
+			this._buildMap();
+	//		this.on("restrictedExtent-change", this.zoomToMaxExtent);			
+		},
+
+		_buildMap: function() {
 
 			this.map = L.map(this.domNode, {
 				 	center: [28.5, -16.0],
@@ -43,13 +75,60 @@ define([
 				})
 			]);*/
 		},
+	
+		_addLayer: function(layer, index) {
+			layer.getLayerL().addTo(this.map, index);
+			this.emit("layer-added", layer);
+		},
 
-		
+		_removeLayer: function(layer) {
+			this.map.removeLayer(layer.getLayerL());
+			this.emit("layer-removed", layer);
+		},
+
+		_changeBaselayer: function(layer) {
+			this.baselayer && this.removeLayer(this.baselayer);
+
+			this.emit("add-layer", layer, 0);
+			this.emit("basemap-changed", layer);
+			
+			this.baselayer = layer;
+		},
+
+		resize: function() {
+			this.map.invalidateSize();
+		}
+
+/*
+
+
+		_setBaseLayerAttr: function(layer) {
+			if (this.baseLayer)
+				this.layers.remove(this.baseLayer.id);
+			else {
+//				this.map.zoomToMaxExtent();
+			}
+			this.emit("basemap-changed", layer);
+			
+			layer.addTo(this.map);
+			layer.setZIndex(0);
+
+			this._set("baseLayer", layer);
+		},
+
+
  		_getLayersAttr: function() {
 			return this.layers.query(function(layer){
 					return layer.visible === true;
-				}, {sort: [{attribute: "baseLayer", descending: true}]});
+				}, {
+					sort: [{
+						attribute: "baseLayer", 
+						descending: true
+					}]
+				}
+			);
 		},
+
 		getLayerById: function(layerID) {
 			return this.layers.get(layerID);
 		},
@@ -62,60 +141,16 @@ define([
 		},
 
 		_removeLayer: function(layer) {
-//			this.map.removeLayer(layer.get("olLayer"));
-			if (!layer.baseLayer) this.emit("removeLayer", layer);
-		},
-
-		// Añade una capa al mapa
-		addLayer: function(layer) {
-			if (!this.layers.get(layer.layerId)) {
-				this.layers.add(layer);
-				if (layer.baseLayer)
-					this.set("baseLayer", layer);
-			}
-		},
-
-		baseLayer: null,
-		_setBaseLayerAttr: function(layer) {
-			if (this.baseLayer) {
-				this.layers.remove(this.baseLayer.layerId);
-			} else {
-//				this.map.zoomToMaxExtent();
-			}
-//			this.map.setBaseLayer(layer.get("olLayer"));
-			this._set("baseLayer", layer);
-			this.emit("basemap-change", layer);
-
+			if (!layer.isBaseLayer()) 
+				this.emit("removeLayer", layer);
+			this.map.removeLayer(layer.layer);
 		},
 
 		// Elimina una capa al mapa
-		removeLayer: function(layer) {
-			if (!this.layers.get(layer.layerId)) {
-				this.layers.remove(layer.layerId);
-			}		
-		},
 
-		constructor: function() {
-			lang.mixin(this, arguments);
-			var self = this;
-			this.layers = new Observable(
-					new Memory({
-						idProperty: "layerId",
-						data: []
-					}));
 
-			results = this.layers.query({});
-			results.observe(function(object, removedFrom, insertedInto){
-				if(removedFrom > -1){ // existing object removed
-					self._removeLayer(object);
-				}
-				if(insertedInto > -1){ // new or updated object inserted
-					self._addLayer(object);
-				}			
-			});
-		},
 
-		getLayer: function(/* string */ id) {
+		getLayer: function(id) {
 			return this.layers.get(id);
 		},
 
@@ -123,7 +158,7 @@ define([
 		_setRestrictedExtentAttr: function(bounds) {
 /*			this.map.setOptions({
 				restrictedExtent: bounds
-			});*/
+			});
 			this.restrictedExtent = bounds;
 			this.emit("restrictedExtent-change", bounds);
 		},
@@ -147,14 +182,8 @@ define([
 			}, this);
 		},
 		
-		postCreate: function () {
-			this.buildMap();
-			this.on("restrictedExtent-change", this.zoomToMaxExtent);			
-			this._getAttrsOL();			
-		},
+*/
 
-		resize: function() {
-//			this.map.updateSize();
-		}
+
 	});
 });

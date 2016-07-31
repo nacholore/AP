@@ -1,5 +1,4 @@
-{
-	"data": [{
+[{
 		"id": "OU",
 		"label": "Satélite",
 		"default": true,
@@ -9,6 +8,7 @@
 			"version": "1.1.1",
 			"format": "image/jpeg"
 		},
+		"tiled": true,
 		"img": "baselayers/satellite.png"
 	}, {
 		"id": "WMS_MTI",
@@ -19,6 +19,7 @@
 			"version": "1.1.1",
 			"format": "image/png"
 		},
+		"tiled": true,
 		"img": "baselayers/topografico.png"
 	}, {
 		"id": "WMS_CA",
@@ -29,6 +30,6 @@
 			"version": "1.1.1",
 			"format": "image/png"
 		},
+		"tiled": true,
 		"img": "baselayers/callejero.png"
-	}]
-}
+}]

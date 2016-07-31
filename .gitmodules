@@ -28,3 +28,9 @@
 [submodule "src/leaflet-measure"]
 	path = src/leaflet-measure
 	url = https://github.com/ljagis/leaflet-measure.git
+[submodule "src/leaflet-singletilewms"]
+	path = src/leaflet-singletilewms
+	url = https://github.com/ismyrnow/Leaflet.singletilewms.git
+[submodule "src/leaflet-notiled"]
+	path = src/leaflet-notiled
+	url = https://github.com/ptv-logistics/Leaflet.NonTiledLayer.git

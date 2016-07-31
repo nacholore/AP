@@ -458,7 +458,7 @@
 		"type": "layer",
 		"parent": "layers",
 		"layersInfo": {
-			"layers": ["AutoridadPortuaria:Contraincendios"],
+			"layers": ["ap:boya"],
 			"transparent": true
 		},
 		"infoTemplate": [
