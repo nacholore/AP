@@ -44,7 +44,10 @@ define([
 		},
 
 		removeLayer: function(layer) {
-			if (this.layers.get(layer.id)) {
+			var layerId = typeof layer === 'string' ? layer : layer.id,
+				layer = this.layers.get(layerId)
+
+			if (layer) {
 				this.layers.remove(layer.id);
 				this.emit("remove-layer", layer);
 			}
@@ -52,28 +55,24 @@ define([
 
 		postCreate: function () {
 			this._buildMap();
-	//		this.on("restrictedExtent-change", this.zoomToMaxExtent);			
+		},
+
+		startup: function() {
+			this.emit("ready");
 		},
 
 		_buildMap: function() {
 
 			this.map = L.map(this.domNode, {
-				 	center: [28.5, -16.0],
+					center: [28.5, -16.0],
 					doubleClickZoom: false,
 					attributionControl: false,
-    				zoom: 13,
-					crs: L.CRS.EPSG4326
-					//maxBounds: L.latLngBounds(L.latLng(-85, -180), L.latLng(85, 180))
+					zoom: 13,
+					crs: L.CRS.EPSG4326,
+					uppercase: true
 			}); 
 
-//			this.map = new OpenLayers.Map(this.domNode, this.spatialRef);
-/*			this.map.addControls([
-				new OpenLayers.Control.OverviewMap(),
-				new OpenLayers.Control.Navigation(),
-				new OpenLayers.Control.ScaleLine({
-					maxWidth: 250
-				})
-			]);*/
+			this.map.on("click", lang.hitch(this, this._getFeatureInfo));
 		},
 	
 		_addLayer: function(layer, index) {
@@ -95,9 +94,46 @@ define([
 			this.baselayer = layer;
 		},
 
+		existsLayer: function(layerId) {
+			return this.layers.get(layerId) ? true : false;
+		},
+
 		resize: function() {
 			this.map.invalidateSize();
-		}
+		},
+
+		_getFeatureInfo: function(evt) {
+			var self = this,
+				size = this.map.getSize(),
+				bounds = this.map.getBounds(),
+				query = {
+					"width": size.x,
+					"height": size.y,
+					"bbox": [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()].join(','),
+					"x": evt.containerPoint.x,
+					"y": evt.containerPoint.y
+				};
+
+			this.layers.query({}).forEach(function(item){
+				if (!item.isBaseLayer())
+					item.getFeatureInfo(query).then(function(data) {
+						var popup = L.popup()
+							.setLatLng(evt.latlng)
+							.setContent('<p>Hello world!<br />This is a nice popup.</p>')
+							.openOn(self.map);
+					});
+			})
+		},
+
+		zoomToFeature: function(feature) {
+			this.featureZoomed && this.map.removeLayer(this.featureZoomed);
+
+			this.featureZoomed = new L.geoJson(feature, {}
+			).addTo(this.map);
+
+			this.map.fitBounds(this.featureZoomed.getBounds());
+
+		},
 
 /*
 
@@ -117,7 +153,7 @@ define([
 		},
 
 
- 		_getLayersAttr: function() {
+		_getLayersAttr: function() {
 			return this.layers.query(function(layer){
 					return layer.visible === true;
 				}, {

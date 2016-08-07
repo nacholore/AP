@@ -1,41 +1,63 @@
 define([
-	"dojo/_base/declare",
-	"dojo/_base/lang",
-	"dijit/layout/BorderContainer",
-	"dijit/layout/ContentPane",
-	"dijit/form/TextBox",
-    "dgrid/Grid",
-    'dojo/dom-construct',
-    "dgrid/extensions/DijitRegistry"
+	"dojo/_base/declare"
+	, "dojo/_base/lang"
+	, "dojo/Evented"
+	, "dojo/request/xhr"
+	, "dijit/layout/BorderContainer"
+	, "dijit/layout/ContentPane"
+	, "dijit/form/TextBox"
+	, "dgrid/Grid"
+	, 'dojo/dom-construct'
+	, "dgrid/extensions/DijitRegistry"
+
 ], function (
-	declare,
-	lang,
-	BorderContainer,
-	ContentPane,
-	TextBox,
-	Grid,
-	domConstruct,
-	DijitRegistry
+	declare
+	, lang
+	, Evented
+	, xhr
+	, BorderContainer
+	, ContentPane
+	, TextBox
+	, Grid
+	, domConstruct
+	, DijitRegistry
 ) {
-	return declare([BorderContainer], {
+	return declare([BorderContainer, Evented], {
 		title: "Buscador",
 		iconClass: "icon-search",
+		url: "/api/greeting",
+		minLenght: 2,
 
-		renderRow: function (obj) {
+		constructor: function() {
+			this.lastQuery = {
+				text: null,
+				layers: null
+			}
 
-			return domConstruct.create('div', {
-				innerHTML: '<div class="featureRow"><div class="left">' + 
-								obj.label +
-						   '</div>' +
-						   // Icono de zoom
-						   '<div class="right zoomToFeature"><i class="icon-map-marker" aria-hidden="true"></i></div></div>'
-			});
+			this.newQuery = {
+				text: null,
+				layers: null
+			}
+
+			lang.mixin(this, arguments);
+
+			this.on("search-new", this._newQuery);
+			this.on("search-results", this._newFeatures);
 		},
 
-		createSearchBox: function() {
+		postCreate: function() {
+			var self = this;
+			this.inherited(arguments);
+			this._createSearchBox();
+			this._createResultList();		
+		},
+
+		_createSearchBox: function() {
 			this.textBoxSearch = new TextBox({
 				placeHolder: "Texto a buscar",
-				style: "width:  calc(100% - 4px)"
+				intermediateChanges: true,
+				style: "width:  calc(100% - 4px)",
+				onChange: lang.hitch(this, this._newRequestTextSearch)
 			});
 			
 			var textCP = new ContentPane({
@@ -48,46 +70,88 @@ define([
 			this.addChild(textCP);
 		},
 
-		createResultList: function() {
+		_newRequestTextSearch: function(value) {
+			if (value.trim().length > this.minLenght) {
+				this.newQuery.text = value.trim();
+				this._newRequestSerch();
+			}
+		},
+
+		_newRequestSerch: function() {
+			if (this._hasChangedQuery()) {
+				this.lastXHR && this.lastXHR.cancel();
+				this.emit("search-new", this.newQuery);
+			}
+		},
+
+		_hasChangedQuery: function() {
+			return this.lastQuery.text != this.newQuery.text 
+				|| this.lastQuery.layers != this.newQuery.layers;
+		},
+
+
+		_newQuery: function() {
+			var self = this;
+
+			this.newQuery = xhr(this.url, {
+				handleAs: "json",
+				query: this._getQuery(),
+				method: "GET"
+			}).then(function(data) {
+				self.emit("search-results", data);
+			}, function(error) {
+				self.emit("search-error", error)
+			});
+		},
+
+		_getQuery: function(value) {
+			return this.newQuery;
+		},
+
+
+		_createResultList: function() {
 			this.grid = new (declare([ Grid, DijitRegistry ]))({
 				columns: [{
-				        label: 'First Name',
-				        field: 'label'
-				    },
-				    {
-				        label: 'Last Name',
-				        field: 'coordinates'
-				    }],
+						label: 'First Name',
+						field: 'label'
+					},
+					{
+						label: 'Last Name',
+						field: 'coordinates'
+					}],
 				showHeader: false,
-				renderRow: this.renderRow,
-        		region: "center"
-    		});
+				renderRow: this._renderRow,
+				region: "center"
+			});
 
-    		this.grid.on('.dgrid-content .dgrid-row .zoomToFeature:click', this.zoomToFeature);
-    		this.addChild(this.grid)
+			this.grid.on('.dgrid-content .dgrid-row .zoomToFeature:click', lang.hitch(this, this.zoomToFeature));
+			this.addChild(this.grid)
 
 		},
 
-		zoomToFeature: function(event) {
-			alert("hola has hecho click")
+		_renderRow: function (obj) {
+
+			return domConstruct.create('div', {
+				innerHTML: '<div class="featureRow"><div class="left">' + 
+								obj.label +
+						   '</div>' +
+						   // Icono de zoom
+						   '<div class="right zoomToFeature"><i class="icon-map-marker" aria-hidden="true"></i></div></div>'
+			});
 		},
 
-		onNewFeatures: function(features) {
-			var features = [
-				{ label: "hola", coordinates: [12313.2131, 12321.12321] },
-				{ label: "hola 2", coordinates: [12313.2131, 12321.12321] }
-			];
+
+
+		zoomToFeature: function(evt) {
+			var feature = this.grid.cell(evt).row.data;
+			this.map.zoomToFeature(feature)
+		},
+
+		_newFeatures: function(features) {
 			this.grid.renderArray(features);
-		},
-
-		postCreate: function () {
-			var self = this;
-			this.inherited(arguments);
-			this.createSearchBox()
-			this.createResultList();
-			this.onNewFeatures();
-		
 		}
+
+
 	});
 });
  

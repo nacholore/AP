@@ -24,7 +24,12 @@ var dojoConfig = {
 			main: "leaflet-measure"
 		},{
 			name: "L-notTiled",
-			location: "leaflet-notiled/"
+			location: "leaflet-notiled/",
+			main: "NonTiledLayer"
+		},{
+			name: "L-minimap",
+			location: "leaflet-minimap/dist",
+			main: "Control.MiniMap.min"
 		},{
 			name: "cbtree"
 		},{
@@ -32,6 +37,13 @@ var dojoConfig = {
 		}
 	],
 	deps: ["leaflet"],
+	shim: {
+		// util depends on jquery.
+		// util is non-AMD.
+		"L-notTiled": {
+			deps: ["leaflet"]
+		}
+	},
 	waitSeconds: 5,
 	requestProvider: 'dojo/request/registry',
 	selectorEngine: 'lite',

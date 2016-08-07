@@ -34,3 +34,6 @@
 [submodule "src/leaflet-notiled"]
 	path = src/leaflet-notiled
 	url = https://github.com/ptv-logistics/Leaflet.NonTiledLayer.git
+[submodule "src/leaflet-minimap"]
+	path = src/leaflet-minimap
+	url = https://github.com/Norkart/Leaflet-MiniMap.git

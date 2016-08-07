@@ -8,7 +8,7 @@ define(function (require) {
 		name: "Map",
 
 		"Add layers": function () {
-			var mapItem = new _Map(),
+			var mapItem = new _Map({}),
 				layer = new Layer({
 					id: "prueba"
 				}),
@@ -36,6 +36,38 @@ define(function (require) {
 			}));
 
 			mapItem.addLayer(layer);
+		},
+
+		"Remove layer": function () {
+			var mapItem = new _Map({}),
+				layer = new Layer({
+					id: "prueba"
+				}),
+				dfd = this.async(1000);
+
+			mapItem.on("remove-layer", dfd.callback(function(layer) {
+				assert.equal(layer.id, "prueba", "Not event fired 'remove-layer'");
+			}));
+
+			mapItem.addLayer(layer);
+			mapItem.removeLayer(layer);
+		},
+
+
+		"Layer removed": function () {
+			var mapItem = new _Map({}),
+				layer = new Layer({
+					id: "prueba"
+				}),
+				dfd = this.async(1000);
+
+			mapItem.on("layer-removed", dfd.callback(function(layer) {
+				assert.equal(layer.id, "prueba", "Not event fired 'removed-layer'");
+				assert.equal(mapItem.layers.data.length, 0, "No delete item in store");
+			}));
+
+			mapItem.addLayer(layer);
+			mapItem.removeLayer(layer);
 		},
 
 	});

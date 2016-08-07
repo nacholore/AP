@@ -5,6 +5,7 @@ require([
 	"dijit/layout/AccordionContainer",
 	"app-client/sidebar/LayersTree",
 	"app-client/sidebar/BaseMap",
+	"app-client/sidebar/QueryResults",
 	"app-client/sidebar/Legend",
 	"app-client/sidebar/Search",
 	"app-client/map/Map",
@@ -16,6 +17,7 @@ require([
 		AccordionContainer,
 		LayersTree,
 		BaseMap,
+		QueryResults,
 		Legend,
 		Search,
 		Map,
@@ -71,15 +73,20 @@ require([
 		}));
 
 		// Widget para cambiar el mapa base
+		cpSidebar.addChild(new QueryResults({
+			map: cpMap.map
+		}));
+
+		// Widget para cambiar el mapa base
 		cpSidebar.addChild(new BaseMap({
 			map: cpMap.map
 		}));
 
-/*
+
 		// Widget para cambiar el mapa base
 		cpSidebar.addChild(new Legend({
 			map: cpMap.map
-		}));*/
+		}));
 		
 		bc.placeAt(document.body);
 		bc.startup();

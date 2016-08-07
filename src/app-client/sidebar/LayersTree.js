@@ -85,10 +85,13 @@ define([
 
 				// Se descartan los nodos carpetas
 				if (item.type === "layer") {
-					// La capa no existe
-					var layer = new Layer(item);
-					console.debug(layer);
-					this.map.addLayer(layer);
+					// La capa existe se elimina
+					if (this.map.existsLayer(item.id)) {
+						this.map.removeLayer(item.id);
+					} else {
+						var layer = new Layer(item);
+						this.map.addLayer(layer);
+					}
 				}
 			}, this);
 		}

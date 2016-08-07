@@ -46,12 +46,25 @@ define({
 			name: "leaflet",
 			location: "leaflet",
 			main: "leaflet-src"
-		}]
+		},{
+			name: "L-notTiled",
+			location: "leaflet-notiled/",
+			main: "NonTiledLayer"
+		}],
+		deps: ["leaflet"],
+		shim: {
+			// util depends on jquery.
+			// util is non-AMD.
+			"L-notTiled": {
+				deps: ["leaflet"]
+			}
+		}
 	},
 
 	// Unit test suite(s) to run in each browser
 	suites: [
-		"tests/unit/MapTest"
+		"tests/unit/SearchTest"
+		, "tests/unit/MapTest"
 		//, "tests/unit/basemapTest"
 		, "tests/unit/layerTest"
 

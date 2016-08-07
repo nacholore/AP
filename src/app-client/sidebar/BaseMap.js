@@ -37,12 +37,9 @@ define([
 			baselayer: true
 		},
 
-		constructor: function() {
-			this.inherited(arguments);
-			this._loadData();
-		},
 
 		postCreate: function () {			
+			this._loadData();
 			this.map.on("basemap-changed", lang.hitch(this, this._setActiveItem));
 		},
 
