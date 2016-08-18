@@ -26,7 +26,7 @@ define([
 		title: "Buscador",
 		iconClass: "icon-search",
 		url: "/api/greeting",
-		minLenght: 2,
+		minLenght: 1,
 
 		constructor: function() {
 			this.lastQuery = {
@@ -43,10 +43,10 @@ define([
 
 			this.on("search-new", this._newQuery);
 			this.on("search-results", this._newFeatures);
+			this.on("search-new, search-clear-results", this._clearResults);
 		},
 
 		postCreate: function() {
-			var self = this;
 			this.inherited(arguments);
 			this._createSearchBox();
 			this._createResultList();		
@@ -72,9 +72,11 @@ define([
 
 		_newRequestTextSearch: function(value) {
 			if (value.trim().length > this.minLenght) {
-				this.newQuery.text = value.trim();
 				this._newRequestSerch();
+			} else {
+				this.emit("search-clear-results");
 			}
+			this.newQuery.text = value.trim();
 		},
 
 		_newRequestSerch: function() {
@@ -90,12 +92,13 @@ define([
 		},
 
 
-		_newQuery: function() {
+		_newQuery: function(query) {
 			var self = this;
-
-			this.newQuery = xhr(this.url, {
+			
+			this.lastQuery = lang.clone(query);
+			this.lastXHR = xhr(this.url, {
 				handleAs: "json",
-				query: this._getQuery(),
+				query: query,
 				method: "GET"
 			}).then(function(data) {
 				self.emit("search-results", data);
@@ -113,12 +116,16 @@ define([
 			this.grid = new (declare([ Grid, DijitRegistry ]))({
 				columns: [{
 						label: 'First Name',
-						field: 'label'
+						field: 'properties.description'
 					},
 					{
 						label: 'Last Name',
 						field: 'coordinates'
 					}],
+				pagingLinks: 1,
+        		pagingTextBox: true,
+        		firstLastArrows: true,
+		        pageSizeOptions: [10, 15, 25],
 				showHeader: false,
 				renderRow: this._renderRow,
 				region: "center"
@@ -131,13 +138,18 @@ define([
 
 		_renderRow: function (obj) {
 
-			return domConstruct.create('div', {
+			var node = domConstruct.create('div', {
 				innerHTML: '<div class="featureRow"><div class="left">' + 
-								obj.label +
+								'<span class="title">' + obj.properties.code + '</span>' +
+								'<span class="subtitle">' + obj.properties.titular + '</span>' +
+								'<span class="port">' + obj.properties.port + '</span>' +
+
 						   '</div>' +
 						   // Icono de zoom
 						   '<div class="right zoomToFeature"><i class="icon-map-marker" aria-hidden="true"></i></div></div>'
 			});
+ 
+			return node;
 		},
 
 
@@ -148,10 +160,17 @@ define([
 		},
 
 		_newFeatures: function(features) {
+			this.grid.refresh();
 			this.grid.renderArray(features);
+		},
+
+		onShow:function() {
+			this.textBoxSearch.focus();
+		},
+
+		_clearResults: function() {
+			this.grid.refresh();
 		}
-
-
 	});
 });
  

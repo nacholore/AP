@@ -63,10 +63,11 @@ define({
 
 	// Unit test suite(s) to run in each browser
 	suites: [
-		"tests/unit/SearchTest"
+		"tests/unit/QueryResults"
+		, "tests/unit/SearchTest"
 		, "tests/unit/MapTest"
 		//, "tests/unit/basemapTest"
-		, "tests/unit/layerTest"
+		, "tests/unit/LayerTest"
 
 	],
 

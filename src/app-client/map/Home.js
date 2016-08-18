@@ -30,7 +30,7 @@ define([
 
 		_addMeasureTools: function() {
 			L.control.measure({
-				position: 'topright',
+				position: 'topleft',
 				primaryLengthUnit: 'meters', 
 				secondaryLengthUnit: 'kilometers',
 				primaryAreaUnit: 'sqmeters', 

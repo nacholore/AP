@@ -3,6 +3,7 @@ define([
 	, "dojo/_base/lang"
 	, "dojo/Evented"
 	, "dojo/request/xhr"
+	, "dojo/Deferred"
 	, "dojo/io-query"
 	, "leaflet"
 ], function (
@@ -10,19 +11,24 @@ define([
 	, lang
 	, Evented
 	, xhr
+	, Deferred
 	, ioQuery
 	, L
 ) {
 	return declare([Evented], {
 		id: "",
 		baselayer: false,
+		service: "WMS",
+		format: "image/png",
 		name: "",
-		url: "/geoserver/ap/wms",
 		tiled: false,		
 		layerL: null,
-
-
+		srs: "EPSG:4326",
+		version: "1.1.1",
+		transparent: true,
+		props: ["opacity", "service", "name", "url", "format", "layers", "srs", "version", "transparent"],
 		constructor: function(args) {
+			this.url = window.location.protocol + "//" + window.location.hostname + "/geoserver/wms";
 			this.properties = {
 				format: "image/png",
 				service: "WMS",
@@ -33,7 +39,7 @@ define([
 
 			this.featureInfo = {
 				request: "GetFeatureInfo",
-				query_layers: "ap:boya",
+				query_layers: null,
 				info_format: "application/json",
 				feature_count: 50
 			};
@@ -46,7 +52,9 @@ define([
 			}
 
 			lang.mixin(this.properties, args.layersInfo);
+			lang.mixin(this, args.layersInfo);
 			lang.mixin(this, args);
+			this.featureInfo["query_layers"] = this.properties["layers"];
 			delete this["layersInfo"]
 
 			this.layerL = this._createLayer();
@@ -62,15 +70,22 @@ define([
 		},
 
 		_createTiledLayer: function() {
-			return new L.TileLayer.WMS(this.url, this._mixinProps());		
+			return new L.TileLayer.WMS(this.url, this._getProperties());		
 		},
 
 		_createSingleLayer: function() {
-			return new L.NonTiledLayer.WMS(this.url, this._mixinProps());
+			return new L.NonTiledLayer.WMS(this.url, this._getProperties());
 		},
 
-		_mixinProps: function() {
-			return this.properties;
+		_getProperties: function() {
+			return {
+				format: this.get("format"),
+				service: this.get("service"),
+				version: this.get("version"),
+				layers: this.get("layers"),
+				srs: this.get("srs"),
+				transparent: this.get("transparent")
+			};
 		},
 
 		isBaseLayer: function() {
@@ -86,17 +101,24 @@ define([
 		},
 
 		getFeatureInfo: function(query) {
-			var self = this;
+			var self = this,
+				dfd = new Deferred();
 			this.emit("query-request");
-			return xhr(this.url, {
+			
+			xhr(this.url, {
 				handleAs: "json",
 				query: lang.mixin(query, this.featureInfo, this.properties),
 				method: "GET"
-			}).then(function(data) {
-				self.emit("query-response");
-			}, function(erro) {
-				self.emit("query-error");
+			}).then(function(features){
+				dfd.resolve({
+					layer: self,
+					features: features
+				});
+			}, function(error) {
+				dfd.reject(error);
 			});
+
+			return dfd.promise;
 		},
 
 		_getQueryLegend: function() {
@@ -104,6 +126,14 @@ define([
 				layer: this.properties.layers
 			}
 			return lang.mixin(query, this.legendOptions);
+		},
+
+		clone: function() {
+			return this._createLayer();
+		},
+
+		isQueryable: function() {
+			return this.queryable || this.infoTemplate
 		},
 
 		getLegend: function() {
@@ -114,8 +144,14 @@ define([
 			return this.name;
 		},
 
-		clone: function() {
-			return this._createLayer();
+		getInfoTemplate: function() {
+			return this.infoTemplate && this.infoTemplate.join('');
+		},
+
+		get: function(name) {
+			if (this.props.indexOf(name)) {
+				return this[name];
+			}
 		}
 
 

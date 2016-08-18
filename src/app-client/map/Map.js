@@ -8,17 +8,6 @@ define([
 	, "dijit/form/Select"
 	, "app-client/map/Home"
 	, "app-client/map/Print"
-/*	, "dojo/on"
-
-
-
-
-	, "app-client/map/QueryFeature"
-
-
-
-	, "dojo/json"
-	*/
 ], function (
 	declare
 	, ContentPane
@@ -29,17 +18,6 @@ define([
 	, Select
 	, Home
 	, Print
-	/*, on	
-
-
-
-
-	, QueryFeature
-	
-
-
-	, JSON
-	*/
 ) {
 	return declare([ContentPane], {
 		baseClass: "map",
@@ -76,12 +54,7 @@ define([
 
 		_createToolbar: function() {
 			var self = this;
-		/*	new QueryFeature({
-				label: 'Consultar',
-				iconClass: 'icon-info-sign',
-				showLabel: false,
-				map: this.map
-			}).placeAt(this.toolbarTopNode);
+
 
 			// Imprimir mapa
 			new Print({
@@ -89,22 +62,29 @@ define([
 				iconClass: "icon-print",
 				showLabel: false,
 				map: this.map
-			}).placeAt(this.toolbarTopNode);*/
+			}).placeAt(this.toolbarTopNode);
 
 			var store = Memory({
 				data: this.config.ports
 			});
+			
+			for (var i = 0; i < store.data.length; i++)
+			 	if (store.data[i].default)
+					portDefault = store.data[i];
+
 			// Seleccionar puerto
 			var sel = new Select({
 				labelAttr: "name",
 				style: "width: 150px;",
-				value: 1,
+				value: portDefault.id,
 				store: store,
 				onChange: function(val) {
-					var bounding = this.store.get(val);
-					self.map.set("restrictedExtent", bounding.bounds);
+					var port = this.store.get(val);
+					self.map.setMaxBound(port.bounds);
 				}
 			}).placeAt(this.toolbarTopNode);
+
+			this.map.setMaxBound(portDefault.bounds);
 
 		/*	var rest = this.map.on("basemap-change", function() {
 				var port = store.get(sel.get("value"));

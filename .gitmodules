@@ -37,3 +37,9 @@
 [submodule "src/leaflet-minimap"]
 	path = src/leaflet-minimap
 	url = https://github.com/Norkart/Leaflet-MiniMap.git
+[submodule "src/dstore"]
+	path = src/dstore
+	url = https://github.com/SitePen/dstore.git
+[submodule "src/xstyle"]
+	path = src/xstyle
+	url = https://github.com/kriszyp/xstyle.git

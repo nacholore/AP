@@ -2,6 +2,7 @@ define([
 	"dojo/_base/declare"
 	, "dojo/_base/lang"
 	, "dojo/Evented"
+	, "dojo/promise/all"
 	, "dijit/layout/_LayoutWidget"
 	, "dojo/store/Memory"
 	, "leaflet"
@@ -9,6 +10,7 @@ define([
 	declare
 	, lang
 	, Evented
+	, all
 	, _LayoutWidget
 	, Memory
 	, L
@@ -28,6 +30,7 @@ define([
 			this.on("add-layer", this._addLayer);
 			this.on("remove-layer", this._removeLayer);
 			this.on("change-baselayer", this._changeBaselayer);
+			this.on("map-new-query", this._removeFeature);
 		},
 
 		addLayer: function(layer) {
@@ -104,7 +107,7 @@ define([
 
 		_getFeatureInfo: function(evt) {
 			var self = this,
-				size = this.map.getSize(),
+			  	size = this.map.getSize(),
 				bounds = this.map.getBounds(),
 				query = {
 					"width": size.x,
@@ -113,20 +116,23 @@ define([
 					"x": evt.containerPoint.x,
 					"y": evt.containerPoint.y
 				};
+			
+			this.emit("map-new-query");
 
-			this.layers.query({}).forEach(function(item){
-				if (!item.isBaseLayer())
-					item.getFeatureInfo(query).then(function(data) {
-						var popup = L.popup()
-							.setLatLng(evt.latlng)
-							.setContent('<p>Hello world!<br />This is a nice popup.</p>')
-							.openOn(self.map);
-					});
-			})
+			var listDfd = {};
+			this.layers.query({}).map(function(item){
+				if (!item.isBaseLayer() && item.isQueryable())
+					listDfd[item.id] = item.getFeatureInfo(query);
+			});
+
+			all(listDfd).then(function(features) {
+				console.debug(features);
+				self.emit("map-response-query", features);
+			});
 		},
 
 		zoomToFeature: function(feature) {
-			this.featureZoomed && this.map.removeLayer(this.featureZoomed);
+			this._removeFeature();
 
 			this.featureZoomed = new L.geoJson(feature, {}
 			).addTo(this.map);
@@ -134,6 +140,33 @@ define([
 			this.map.fitBounds(this.featureZoomed.getBounds());
 
 		},
+
+		_removeFeature: function() {
+			this.featureZoomed && this.map.removeLayer(this.featureZoomed);
+		},
+
+		setMaxBound: function(bound) {
+			var southWest = new L.LatLng(bound[1], bound[0]),
+				northEast = new L.LatLng(bound[3], bound[2]);
+
+			this.map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+		},
+
+		getLayers: function() {
+			return this.layers;
+		},
+
+		getCenter: function() {
+			return this.map.getCenter();
+		},
+
+		getZoom: function() {
+			return this.map.getZoom();
+		},
+
+		getScale: function() {
+			return L.CRS.EPSG4326.scale(this.getZoom());
+		}
 
 /*
 

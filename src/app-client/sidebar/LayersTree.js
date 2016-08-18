@@ -70,9 +70,6 @@ define([
 		// en el árbol
 		_onSelectingLayer: function(node, widget, evt) {
 			
-			// Estado del node sobre el que se ha hecho click
-			var newState = widget.get("checked");
-
 			// Obtiene los hijos del nodo seleccionado
 			var nodes = this._store.getDescendants(node);
 
@@ -85,12 +82,11 @@ define([
 
 				// Se descartan los nodos carpetas
 				if (item.type === "layer") {
-					// La capa existe se elimina
-					if (this.map.existsLayer(item.id)) {
-						this.map.removeLayer(item.id);
-					} else {
+					if (item.checked) {
 						var layer = new Layer(item);
 						this.map.addLayer(layer);
+					} else {
+						this.map.removeLayer(item.id);
 					}
 				}
 			}, this);
