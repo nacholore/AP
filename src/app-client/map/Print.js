@@ -37,6 +37,7 @@ define([
 		urlService: "/geoserver/pdf/info.json",
 		layouts: null,
 		scales: null,
+		maxHeight: 750,
 
 		constructor: function(arguments) {
 			this.service = {};
@@ -211,6 +212,7 @@ define([
 			var layers = this._getLayers();
 			var center = this.map.getCenter();
 			var scale = this._getScale();
+			var legends = this._getLegends(this.maxHeight);
 
 			return JSON.stringify({
 					'units': 'degrees',
@@ -223,7 +225,11 @@ define([
 						'scale': parseInt(scale),
 						'rotation': 0,
 						'title': this.info.title,
-						'author': this.info.author
+						'author': this.info.author,
+						'results': {
+							'data': legends, 
+							'columns': ['icon']
+        				}
 					}]
 				})
 		},
@@ -232,8 +238,9 @@ define([
 		_getLayers: function() {
 			var conf = [];
 			this.map.getLayers().query({}).forEach(function(layer) {
+				var url = layer.get("url");
 				var l = {
-					baseURL: layer.get("url"),
+					baseURL: url.indexOf(window.location.hostname) ? url.replace(window.location.hostname, "localhost:8080") : url,
 					opacity: layer.get("opacity"),
 					type: layer.get("service"),
 					singleTile: !layer.isTiled(),
@@ -243,6 +250,24 @@ define([
 				conf.push(l);
 			});
 			return conf;
+		},
+
+		_getLegends: function(maxHeight) {
+			var tmpHeight = 0,
+				legends = [];
+
+			this.map.getLayers().query({}).forEach(function(layer) {
+				var legendSize = layer.getSizeLegend();
+				if (legendSize && legendSize.height +  tmpHeight < maxHeight) {
+					var url = layer.getLegend();
+					legends.push({
+						icon: url.indexOf(window.location.hostname) ? url.replace(window.location.hostname, "localhost:8080") : url
+					});
+					tmpHeight += legendSize.height;
+				}
+			});
+
+			return legends;
 		},
 
 		_printed: function(url) {

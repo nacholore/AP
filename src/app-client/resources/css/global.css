@@ -1,168 +1,105 @@
 html, body {
-  width: 100%; height: 100%;
-  border: 0; 
-  padding: 0; 
-  margin: 0;
-  font-family: 'Exo 2', sans-serif !important;
-  font-size: 13px !important;
-  line-height: 16px !important;
+	width: 100%; height: 100%;
+	border: 0; 
+	padding: 0; 
+	margin: 0;
+	font-family: 'Exo 2', sans-serif !important;
+	font-size: 13px !important;
+	line-height: 16px !important;
 }
 
 body * {
-    outline: 0 !important;
+		outline: 0 !important;
 }
 
 .map {
-  cursor: help;
+	cursor: help;
 }
 
 /* Hace flotante un div sobre el mapa */
 .toolbar {
-  z-index:1000;
-  position:absolute;
-  background:rgba(255, 255, 255, 0.7);
-  padding: 2px;
-  border-radius: 4px;
+	z-index:1000;
+	position:absolute;
 }
 
 .left {
-  left:8px;
-  top:85px;
-  width: 37px;
+	left:8px;
+	top:85px;
+	width: 37px;
 }
 
 .top {
-  right:8px;
-  top:8px;
+	right: 10px;
+	top: 10px;
 }
 
 .left > .dijitButton {
-  margin: 0px;
+	margin: 0px;
 }
 .left .dijitButtonNode {
-  padding: 9px 12px !important;
-  border: none !important;
+	padding: 9px 12px !important;
+	border: none !important;
 }
 
 .dijitButtonContents {
-  outline: 0 !important;
+	outline: 0 !important;
 }
 
+div.toolbar.top .dijitButton .dijitButtonNode {
+    padding: 5px 14px;
+}
 
+div.toolbar.top .dijitButton {
+	margin: 0 0.2em
+}
 
-
+.dijitTabListWrapper {
+	left: 0px !important;
+}
 
 .selectPort {
-  float: right;
+	float: right;
 }
 
 .banner {
-  background: url('banner.png') no-repeat;
-  background-position: center;
-}
-
-.full-height {
-    height: 100%;
-}
-
-
-
-.float {
- 
+	background: url('banner.png') no-repeat;
+	background-position: center;
 }
 
 .map {
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
-}
-
-.toolbarMap {
-    position:absolute;
-    width: 433px;
-    right:5px;
-    top:10px;
-    background:rgba(255, 255, 255, 0.7);
-    padding: 2px;
-}
-
-.toolbarMap button {
-  float: left;
-  opacity: 1 !important;
-}
-
-.border-rounded-left-up {
-  border-radius: 5px 0px 0px 0px;
-}
-
-.border-silver {
-	border: 1px solid silver;
-}
-
-.border-rounded-all {
-  border-radius: 5px;
-}
-
-.olControlOverviewMapElement {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7) !important;
-    border-radius: 4px 0px 0px 0px;
-}
-
-
-.toggleButtonGroup > .dijitToggleButton:first-child {
-    margin: 0.2em -0.2em 0.2em 0.2em !important;
-}
-
-.toggleButtonGroup > .dijitToggleButton:last-child {
-    margin: 0.2em 0.2em 0.2em -0.2em !important;
-}
-
-.toggleButtonGroup > .dijitToggleButton {
-    margin: 0.2em -0.2em 0.2em -0.2em !important;
-}
-
-/*
-.toggleButtonGroup .dijitButtonNode:first-child {
-  border-radius: 4px 0px 0px 4px !important;
-}
-
-.toggleButtonGroup .dijitButtonNode:last-child {
-  border-radius: 0px 4px 4px 0px !important;
-}*/
-
-.toggleButtonGroup .dijitButtonNode {
-  border-radius: 0px !important;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
 }
 
 .one-edge-shadow {
 	-webkit-box-shadow: 0 8px 6px -6px black;
-	   -moz-box-shadow: 0 8px 6px -6px black;
-	        box-shadow: 0 8px 6px -6px black;
+		 -moz-box-shadow: 0 8px 6px -6px black;
+					box-shadow: 0 8px 6px -6px black;
 }
 
 .shadow {
-  -moz-box-shadow:    3px 3px 2px 3px #ccc;
-  -webkit-box-shadow: 3px 3px 2px 3px #ccc;
-  box-shadow:         3px 3px 2px 3px #ccc;
+	-moz-box-shadow:    3px 3px 2px 3px #ccc;
+	-webkit-box-shadow: 3px 3px 2px 3px #ccc;
+	box-shadow:         3px 3px 2px 3px #ccc;
 }
 
 .active {
-  -moz-box-shadow:    3px 3px 2px 3px rgba(0,136,204,0.5);
-  -webkit-box-shadow: 3px 3px 2px 3px rgba(0,136,204,0.5);
-  box-shadow:         3px 3px 2px 3px rgba(0,136,204,0.5);
+	-moz-box-shadow:    3px 3px 2px 3px rgba(0,136,204,0.5);
+	-webkit-box-shadow: 3px 3px 2px 3px rgba(0,136,204,0.5);
+	box-shadow:         3px 3px 2px 3px rgba(0,136,204,0.5);
 }
 
 .baselayerItemLabel {
 	background: white;
-	opacity: 0.9;
+	opacity: 0.8;
 	padding: 5px;
 	border-radius: 4px;
 	margin: 0px auto;
 	line-height: 80px;
 	font-size: 20px;
 }
-
 
 .baselayerItemContainer {
 	width: 100%;
@@ -175,139 +112,81 @@ body * {
 }
 
 .link {
-  cursor: pointer;
-  color: #0088CC;
-  padding-right: 4px;
-}
-
-
-#frame_contentDiv {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border-radius: 5px;
-}
-
-
-
-.olPopupContent {
-    overflow: visible !important;
-    padding: 0 !important;
-    z-index: 2 !important;
-}
-
-.olPopup {
-    z-index: 1005 !important;
-}
-
-
-
-/*.olwidgetPopupContent {
-    padding: 30px 0 0 0;
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 4px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
-    overflow: auto;
-    z-index: 2;
-    height: calc(100% -30px);
-}*/
-.olwidgetPopupCloseBox {
-/*    background: url("img/popup_icons.png") no-repeat scroll -80px 0 #FFFFFF;*/
-    color: #0088CC;
-    cursor: pointer;
-    font-size: 16px;
-    overflow: hidden;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
-.olwidgetPopupCloseBox:hover {
-    background-position: -64px 0;
-}
-.olwidgetPopupStemTL,.olwidgetPopupStemTR {
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    background: none repeat scroll 0 0 #FFFFFF;
-    z-index: 1;
-}
-
-.olwidgetPopupStemBL,.olwidgetPopupStemBR {
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    background: none repeat scroll 0 0 #FFFFFF;
-    z-index: 1;
+	cursor: pointer;
+	color: #0088CC;
+	padding-right: 4px;
 }
 
 .form-group {
-  width: 100%;
-  clear: both;
+	width: 100%;
+	clear: both;
 }
 
 .form-group div:first-child {
-  font-style: italic;
-  text-align: right;
-  padding-right: 12px;
-  float: left;
-  width: 35%;
+	font-style: italic;
+	text-align: right;
+	padding-right: 12px;
+	float: left;
+	width: 35%;
 }
 
 .form-group div:last-child {
-  margin-left: calc(35% + 15px);
+	margin-left: calc(35% + 15px);
 }
 
 .stackController {
-  text-align: center;
+	text-align: center;
 }
 
 .controllers {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .controllers span.index {
-  width: 60px;
-  display: inline-block;
+	width: 60px;
+	display: inline-block;
 }
 .controllers .index div {
-  display: inline;
+	display: inline;
 }
 
-
 span.spin {
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 800ms;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: spin;
-  -moz-animation-duration: 800ms;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
-  -ms-animation-name: spin;
-  -ms-animation-duration: 800ms;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-timing-function: linear;
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 800ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: spin;
+	-moz-animation-duration: 800ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-ms-animation-name: spin;
+	-ms-animation-duration: 800ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
 }
 
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+		from { -moz-transform: rotate(0deg); }
+		to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+		from { -webkit-transform: rotate(0deg); }
+		to { -webkit-transform: rotate(360deg); }
 }
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+		from {transform:rotate(0deg);}
+		to {transform:rotate(360deg);}
+}
+
+/* Buscador */
+.dgrid-content {
+	width: 100% !important;
 }
 
 .legendWidget {
-  overflow: auto !important;
-  height: 100%;
-  width: 100%;
+	overflow: auto !important;
+	height: 100%;
+	width: 100%;
 }
 
 .legendWidget > .hidden{
@@ -316,60 +195,49 @@ span.spin {
 
 
 .legendWidget div.item {
-  width: 100%;
+	width: 100%;
 }
 
 .legendWidget span.head {
-  width: 100%;
-  font-weight: bold;
-  font-size: 14px;
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
 }
 
 .legendWidget div.legend {
-  width: 100%;
-  margin: 0 0 10px 10px;
+	width: 100%;
+	margin: 0 0 10px 10px;
 }
-
-
-.popup {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-.hidden {
-  top: 9999px;
-  left: 9999px;
-}
-
 
 .dbootstrap .well, .dbootstrap fieldset {
-  clear: both;
-  margin-bottom: 0 !important;
-  padding: 0 15px !important;
+	clear: both;
+	margin-bottom: 0 !important;
+	padding: 0 15px !important;
 }
+
+
 
 
 fieldset.lighter {
-  background-color:rgba(255,255,255,0.6) !important;
+	background-color:rgba(255,255,255,0.6) !important;
 }
 
 .dbootstrap .dijitTabHover {
-  background: white !important;
+	background: white !important;
 }
 
 .dbootstrap .dijitTabContainerTop .dijitTabChecked {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .bg-silver, .dbootstrap .dijitTabChecked {
-  background: #F5F5F5 !important;
+	background: #F5F5F5 !important;
 }
 
 .thumbnail {
-  border-radius: 5px;
-  margin: 5px 0px;
-  width: 100%;
+	border-radius: 5px;
+	margin: 5px 0px;
+	width: 100%;
 }
 
 .dgrid .dgrid-row:hover {
@@ -377,62 +245,62 @@ fieldset.lighter {
 }
 
 .dgrid-content .dgrid-row .featureRow {
-  min-height: 50px;
-  padding: 8px 0px 8px 10px;
+	min-height: 50px;
+	padding: 8px 0px 8px 10px;
 }
 
 .featureRow .left {
-  width: 89%;
-  float: left;
-  font-size: 12px;
+	width: 89%;
+	float: left;
+	font-size: 12px;
 }
 
 .featureRow span.title, .featureRow span.subtitle, .featureRow span.port {
-  float: left;
-  clear: left;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+	float: left;
+	clear: left;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden !important;
+	text-overflow: ellipsis;
 }
 
 
 .featureRow span.title{
-  font-weight: bold;
-  font-size: 15px;
+	font-weight: bold;
+	font-size: 15px;
 }
 
 .featureRow span.port{
-  font-style: italic;
+	font-style: italic;
 }
 
 .featureRow .right {
-  width: 10%;
-  float: right;
-  text-align: center;
-  font-size: 25px;
-  line-height: 50px;
+	width: 10%;
+	float: right;
+	text-align: center;
+	font-size: 25px;
+	line-height: 50px;
 }
 
 .featureRow .right:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .sidebar .dijitAccordionTitle .dijitIcon {
-  float: right;
+	float: right;
 }
 
 .dgrid-scroller {
-  overflow-y: auto !important;
+	overflow-y: auto !important;
 }
 
 
 
 .leaflet-control-measure .leaflet-control-measure-toggle {
-  width: 26px;
-  height: 26px;
+	width: 26px;
+	height: 26px;
 }
 
 .leaflet-container {
-  font-family: 'Exo 2', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 }

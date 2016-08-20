@@ -31,12 +31,14 @@ define([
 		constructor: function() {
 			this.lastQuery = {
 				text: null,
-				layers: null
+				layers: null,
+				bounds: null
 			}
 
 			this.newQuery = {
 				text: null,
-				layers: null
+				layers: null,
+				bounds: null
 			}
 
 			lang.mixin(this, arguments);
@@ -48,6 +50,7 @@ define([
 
 		postCreate: function() {
 			this.inherited(arguments);
+			this.map.on("set-max-bounds", lang.hitch(this, this._newRequestBoundsSearch));
 			this._createSearchBox();
 			this._createResultList();		
 		},
@@ -62,7 +65,8 @@ define([
 			
 			var textCP = new ContentPane({
 				region: "top",
-				style: "padding: 10px 0"
+				style: "padding: 10px 0; width: 100%;"
+
 			});
 
 			textCP.addChild(this.textBoxSearch);
@@ -72,23 +76,34 @@ define([
 
 		_newRequestTextSearch: function(value) {
 			if (value.trim().length > this.minLenght) {
-				this._newRequestSerch();
+				this._newRequestSearch();
 			} else {
 				this.emit("search-clear-results");
 			}
 			this.newQuery.text = value.trim();
 		},
 
-		_newRequestSerch: function() {
+		_newRequestSearch: function() {
 			if (this._hasChangedQuery()) {
 				this.lastXHR && this.lastXHR.cancel();
 				this.emit("search-new", this.newQuery);
 			}
 		},
 
+		_newRequestBoundsSearch: function(bounds) {
+			if (!this.lastQuery || this.lastQuery.bounds != bounds.join()) {
+				this.newQuery.bounds = bounds.join();
+				this._newRequestSearch();
+			} else {
+				this.emit("search-clear-results");
+			}
+		},
+
+
 		_hasChangedQuery: function() {
-			return this.lastQuery.text != this.newQuery.text 
-				|| this.lastQuery.layers != this.newQuery.layers;
+			return this.newQuery.text  && (this.lastQuery.text != this.newQuery.text 
+				|| this.lastQuery.layers != this.newQuery.layers
+				|| this.lastQuery.bounds != this.newQuery.bounds);
 		},
 
 
@@ -128,7 +143,8 @@ define([
 		        pageSizeOptions: [10, 15, 25],
 				showHeader: false,
 				renderRow: this._renderRow,
-				region: "center"
+				region: "center",
+				style: "width: 100%"
 			});
 
 			this.grid.on('.dgrid-content .dgrid-row .zoomToFeature:click', lang.hitch(this, this.zoomToFeature));

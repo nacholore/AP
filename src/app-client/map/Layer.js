@@ -24,6 +24,7 @@ define([
 		tiled: false,		
 		layerL: null,
 		srs: "EPSG:4326",
+		uppercase: true,
 		version: "1.1.1",
 		transparent: true,
 		props: ["opacity", "service", "name", "url", "format", "layers", "srs", "version", "transparent"],
@@ -70,11 +71,17 @@ define([
 		},
 
 		_createTiledLayer: function() {
-			return new L.TileLayer.WMS(this.url, this._getProperties());		
+			return new L.TileLayer.WMS(this.url, this._getPropertiesL());		
 		},
 
 		_createSingleLayer: function() {
-			return new L.NonTiledLayer.WMS(this.url, this._getProperties());
+			return new L.NonTiledLayer.WMS(this.url, this._getPropertiesL());
+		},
+
+		_getPropertiesL: function() {
+			var props = this._getProperties();
+			props['uppercase'] = this.uppercase;
+			return props;
 		},
 
 		_getProperties: function() {
@@ -140,6 +147,11 @@ define([
 			return url = this.url + "?" + ioQuery.objectToQuery(this._getQueryLegend());
 		},
 
+		getSizeLegend: function() {
+			return this.legendSize;
+		},
+
+
 		getLabel: function() {
 			return this.name;
 		},
@@ -152,6 +164,11 @@ define([
 			if (this.props.indexOf(name)) {
 				return this[name];
 			}
+		},
+
+		setSizeLegend: function(size) {
+			console.debug(size);
+			this.legendSize = size;
 		}
 
 

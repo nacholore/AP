@@ -70,9 +70,10 @@ define([
 					center: [28.5, -16.0],
 					doubleClickZoom: false,
 					attributionControl: false,
-					zoom: 13,
+					zoom: 12,
 					crs: L.CRS.EPSG4326,
-					uppercase: true
+					uppercase: true,
+					maxZoom: 18
 			}); 
 
 			this.map.on("click", lang.hitch(this, this._getFeatureInfo));
@@ -126,7 +127,6 @@ define([
 			});
 
 			all(listDfd).then(function(features) {
-				console.debug(features);
 				self.emit("map-response-query", features);
 			});
 		},
@@ -134,22 +134,30 @@ define([
 		zoomToFeature: function(feature) {
 			this._removeFeature();
 
-			this.featureZoomed = new L.geoJson(feature, {}
-			).addTo(this.map);
+			this._addFeature(feature);
+			this.map.flyToBounds(this.layersFeatures.getBounds());
+		},
 
-			this.map.fitBounds(this.featureZoomed.getBounds());
-
+		_addFeature: function(feature) {
+			this.layersFeatures = new L.geoJson(feature, {}).addTo(this.map);
 		},
 
 		_removeFeature: function() {
-			this.featureZoomed && this.map.removeLayer(this.featureZoomed);
+			this.layersFeatures && this.map.removeLayer(this.layersFeatures);
 		},
 
 		setMaxBound: function(bound) {
-			var southWest = new L.LatLng(bound[1], bound[0]),
-				northEast = new L.LatLng(bound[3], bound[2]);
+			var maxBounds = {
+					xmin: bound[0],
+					ymin: bound[1],
+					xmax: bound[2],
+					ymax: bound[3]
+				}
+				southWest = new L.LatLng(maxBounds.ymin, maxBounds.xmin),
+				northEast = new L.LatLng(maxBounds.ymax, maxBounds.xmax);
 
 			this.map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+			this.emit("set-max-bounds", bound);
 		},
 
 		getLayers: function() {

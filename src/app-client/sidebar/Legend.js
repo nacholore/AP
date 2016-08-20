@@ -2,13 +2,15 @@ define([
 	"dojo/_base/declare",
 	"dojo/_base/lang",
 	"dojo/query",
+	"dojo/dom-construct",
 	"dijit/layout/_LayoutWidget",
 	"put-selector/put",
 	"dojo/NodeList-dom"
 ], function (
 	declare,
 	lang,
-	query,	
+	query,
+	domConstruct,
 	_LayoutWidget,
 	put
 ) {
@@ -21,8 +23,18 @@ define([
 		_addLegend: function(layer) {
 			if (!layer.isBaseLayer()) {
 				var itemNode = put(this.domNode, "div.item[data-map-layerid=" + layer.id + "]");
-				put(itemNode, "span.head", layer.getLabel());
-				put(itemNode, "div.legend img[src=" + layer.getLegend() +"]");
+				put(itemNode, "div.head", layer.getLabel());
+				domConstruct.create("img", {
+					"class": "legend",
+					src: layer.getLegend(),
+					onload: function() {
+						layer.setSizeLegend({
+							height: this.height,
+							width: this.width
+						});
+					}
+				}, itemNode);
+				//put(, "div.legend img[src=" + layer.getLegend() +"]");
 			}
 		},
 
