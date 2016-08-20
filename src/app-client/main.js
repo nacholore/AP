@@ -67,12 +67,12 @@ require([
 			map: cpMap.map
 		}));
 
-		// Widget para cambiar el mapa base
+		// Widget para buscar datos directamente a la base de datos
 		cpSidebar.addChild(new Search({
 			map: cpMap.map
 		}));
 
-		// Widget para cambiar el mapa base
+		// Widget para mostrar los resultado habiendo hecho click en el mapa
 		cpSidebar.addChild(new QueryResults({
 			map: cpMap.map
 		}));
@@ -82,8 +82,7 @@ require([
 			map: cpMap.map
 		}));
 
-
-		// Widget para cambiar el mapa base
+		// Widget para mostrar la leyenda de las capas
 		cpSidebar.addChild(new Legend({
 			map: cpMap.map
 		}));

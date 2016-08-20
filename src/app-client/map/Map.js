@@ -29,8 +29,6 @@ define([
 			var self = this;
 
 			this.mapNode = put(this.containerNode, "div.map[style=width:100%;height:100%;margin:0]");
-			this.toolbarNode = put(this.containerNode, "div.toolbar");
-			//this.toolbarLeftNode = put(this.containerNode, "div.toolbar.left");
 			this.toolbarTopNode = put(this.containerNode, "div.toolbar.top");
 			this._createMap();
 
@@ -85,12 +83,6 @@ define([
 			}).placeAt(this.toolbarTopNode);
 
 			this.map.setMaxBound(portDefault.bounds);
-
-		/*	var rest = this.map.on("basemap-change", function() {
-				var port = store.get(sel.get("value"));
-				self.map.set("restrictedExtent", port.bounds);
-				rest.remove();
-			});*/
 		}
 	});
 });

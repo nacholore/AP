@@ -144,6 +144,7 @@ define([
 				showHeader: false,
 				renderRow: this._renderRow,
 				region: "center",
+				noDataMessage: "No hay datos",
 				style: "width: 100%"
 			});
 

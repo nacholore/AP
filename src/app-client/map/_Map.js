@@ -118,17 +118,18 @@ define([
 					"y": evt.containerPoint.y
 				};
 			
-			this.emit("map-new-query");
-
 			var listDfd = {};
 			this.layers.query({}).map(function(item){
 				if (!item.isBaseLayer() && item.isQueryable())
 					listDfd[item.id] = item.getFeatureInfo(query);
 			});
 
-			all(listDfd).then(function(features) {
-				self.emit("map-response-query", features);
-			});
+			if (Object.keys(listDfd).length) {
+				this.emit("map-new-query");
+				all(listDfd).then(function(features) {
+					self.emit("map-response-query", features);
+				});
+			}
 		},
 
 		zoomToFeature: function(feature) {

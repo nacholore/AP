@@ -27,6 +27,8 @@ define([
 		uppercase: true,
 		version: "1.1.1",
 		transparent: true,
+		legend: true,
+
 		props: ["opacity", "service", "name", "url", "format", "layers", "srs", "version", "transparent"],
 		constructor: function(args) {
 			this.url = window.location.protocol + "//" + window.location.hostname + "/geoserver/wms";
@@ -107,12 +109,13 @@ define([
 			return this.layerL;
 		},
 
-		getFeatureInfo: function(query) {
+		getFeatureInfo: function(query, uid) {
 			var self = this,
 				dfd = new Deferred();
-			this.emit("query-request");
-			
-			xhr(this.url, {
+				
+			this.queryInProgress && this.queryInProgress.cancel('New request query');
+
+			this.queryInProgress = xhr(this.url, {
 				handleAs: "json",
 				query: lang.mixin(query, this.featureInfo, this.properties),
 				method: "GET"
@@ -143,15 +146,6 @@ define([
 			return this.queryable || this.infoTemplate
 		},
 
-		getLegend: function() {
-			return url = this.url + "?" + ioQuery.objectToQuery(this._getQueryLegend());
-		},
-
-		getSizeLegend: function() {
-			return this.legendSize;
-		},
-
-
 		getLabel: function() {
 			return this.name;
 		},
@@ -166,11 +160,20 @@ define([
 			}
 		},
 
+		getLegendUrl: function() {
+			return this.hasLegend() && this.url + "?" + ioQuery.objectToQuery(this._getQueryLegend());
+		},
+
+		hasLegend: function() {
+			return !this.isBaseLayer() && this.legend;
+		},
+
+		getSizeLegend: function() {
+			return this.hasLegend() && this.legendSize;
+		},
+
 		setSizeLegend: function(size) {
-			console.debug(size);
 			this.legendSize = size;
 		}
-
-
 	})
 });

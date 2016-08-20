@@ -1,15 +1,15 @@
 define([
 	"dojo/_base/declare"
-	, "dijit/_WidgetBase"
 	, "dojo/_base/lang"
+	, "dijit/_WidgetBase"
 	, "leaflet"
 	, "L-minimap"
 	, "L-navBar"
 	, "L-measure"
 ], function (
 	declare
-	, _WidgetBase
 	, lang
+	, _WidgetBase
 	, L
 	, MiniMap
 ) {

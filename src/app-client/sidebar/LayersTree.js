@@ -1,30 +1,28 @@
 define([
-	"dojo/_base/declare",
-	"dojo/_base/array",
-	"dojo/_base/lang",
-	"dojo/on",
-	"dojo/request/xhr",
-	"dijit/layout/ContentPane",
-	"cbtree/Tree",
-	"cbtree/model/TreeStoreModel",
-	"app-client/map/Layer",
-	"cbtree/store/Hierarchy",
-	"cbtree/store/extensions/Ancestry"
+	'dojo/_base/declare'
+	, 'dojo/_base/lang'
+	, 'dojo/_base/array'
+	, 'dojo/request/xhr'
+	, 'dijit/layout/ContentPane'
+	, 'cbtree/Tree'
+	, 'cbtree/model/TreeStoreModel'
+	, 'app-client/map/Layer'
+	, 'cbtree/store/Hierarchy'
+	, 'cbtree/store/extensions/Ancestry'
 ], function (
-	declare,
-	arrayUtil,
-	lang,
-	on,
-	xhr,
-	ContentPane,
-	Tree,
-	TreeStoreModel,
-	Layer,
-	Hierarchy
+	declare
+	, lang
+	, arrayUtil
+	, xhr
+	, ContentPane
+	, Tree
+	, TreeStoreModel
+	, Layer
+	, Hierarchy
 ) {
 	return declare([ContentPane], {
-		title: "Capas",
-		iconClass: "fa fa-sitemap",
+		title: 'Capas',
+		iconClass: 'fa fa-sitemap',
 		map: null,
 		_store: null,
 		_model:null,
@@ -36,8 +34,8 @@ define([
 
 		// Carga la estructura del árbol de las capas
 		_loadData: function() {
-			xhr("/conf/capas.json", {
-				handleAs: "json"
+			xhr('/conf/capas.json', {
+				handleAs: 'json'
 			}).then(lang.hitch(this, this.buildTree));
 		},
 
@@ -50,19 +48,19 @@ define([
 			this._model = new TreeStoreModel({
 				store: this._store,
 				query: {
-					id: "layers"
+					id: 'layers'
 				},
-				rootLabel: "Puertos de Tenerife",
+				rootLabel: 'Puertos de Tenerife',
 				checkedRoot: true
 			});
 
 			this._tree = new Tree({
 				model: this._model,
 				showRoot: false,
-				"class": "full-height"
+				'class': 'full-height'
 			}).placeAt(this.containerNode);
 
-			this._tree.on("checkBoxClick", 
+			this._tree.on('checkBoxClick', 
 				lang.hitch(this, this._onSelectingLayer));
 		},
 
@@ -81,7 +79,7 @@ define([
 			arrayUtil.forEach(nodes, function(item) {
 
 				// Se descartan los nodos carpetas
-				if (item.type === "layer") {
+				if (item.type === 'layer') {
 					if (item.checked) {
 						var layer = new Layer(item);
 						this.map.addLayer(layer);

@@ -46,7 +46,7 @@ body * {
 }
 
 div.toolbar.top .dijitButton .dijitButtonNode {
-    padding: 5px 14px;
+		padding: 5px 14px;
 }
 
 div.toolbar.top .dijitButton {
@@ -183,31 +183,75 @@ span.spin {
 	width: 100% !important;
 }
 
+/* Legend */
 .legendWidget {
 	overflow: auto !important;
 	height: 100%;
 	width: 100%;
 }
 
-.legendWidget > .hidden{
- display: none;
-}
-
-
 .legendWidget div.item {
 	width: 100%;
 }
 
-.legendWidget span.head {
+.legendWidget div.item + div.item {
+	margin-top: 15px;
+} 
+
+.legendWidget div.head {
 	width: 100%;
+	font-weight: bold;
+	font-size: 1.4em;
+	line-height: 1.6em;
+}
+
+.legendWidget div.item img.legend {
+	padding-left: 10px;
+}
+
+
+/* Tree */
+div.dijitTreeIsRoot >div.dijitTreeRow > span.dijitTreeContent {
 	font-weight: bold;
 	font-size: 14px;
 }
 
-.legendWidget div.legend {
-	width: 100%;
-	margin: 0 0 10px 10px;
+.dijitIcon:before {
+	width: 14px;
 }
+
+/* Modificaciones dbootstrap */
+.dbootstrap .dijitTab {
+
+		padding: 8px !important;
+		line-height: 14px !important;
+}
+
+.dijitStackContainer-child {
+	left: 0px !important;
+  top: 0px !important;
+}
+
+/* Mesanje */
+div.message.center > div {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+div.contentMsg > i {
+	color: #b7b7b7;
+}
+
+div.contentMsg > div.title {
+  font-size: 1.2em;
+  line-height: 3.6em;
+}
+
+/* */
 
 .dbootstrap .well, .dbootstrap fieldset {
 	clear: both;
