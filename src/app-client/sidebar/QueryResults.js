@@ -12,7 +12,7 @@ define([
 	, ShowQueryResults
 ) {
 	return declare([StackContainer], {
-		title: 'Info',
+		title: 'Información',
 		iconClass: 'fa fa-map-pin',
 		map: null,
 		
