@@ -130,9 +130,19 @@ div.toolbar.top .dijitButton {
 	width: 35%;
 }
 
-.form-group div:last-child {
-	margin-left: calc(35% + 15px);
+.formPrint .form-group {
+  line-height: 1.6em;
+  padding: 10px 0px;
 }
+
+.form-group > label {
+  float: left;
+  width: 30%;
+  padding: 0px 10px;
+  text-align: right;
+  line-height: 2.4em;
+}
+
 
 .stackController {
 	text-align: center;
@@ -222,9 +232,8 @@ div.dijitTreeIsRoot >div.dijitTreeRow > span.dijitTreeContent {
 
 /* Modificaciones dbootstrap */
 .dbootstrap .dijitTab {
-
-		padding: 8px !important;
-		line-height: 14px !important;
+	padding: 8px !important;
+	line-height: 14px !important;
 }
 
 .dijitStackContainer-child {
@@ -248,7 +257,7 @@ div.contentMsg > i {
 
 div.contentMsg > div.title {
   font-size: 1.2em;
-  line-height: 3.6em;
+    line-height: 3.6em;
 }
 
 /* */

@@ -31,6 +31,7 @@ define([
 			this.on("remove-layer", this._removeLayer);
 			this.on("change-baselayer", this._changeBaselayer);
 			this.on("map-new-query", this._removeFeature);
+			this.on("map-new-query", this._manageQueryMarker);
 		},
 
 		addLayer: function(layer) {
@@ -125,11 +126,21 @@ define([
 			});
 
 			if (Object.keys(listDfd).length) {
-				this.emit("map-new-query");
+				this.emit("map-new-query", evt.latlng);
+
 				all(listDfd).then(function(features) {
 					self.emit("map-response-query", features);
 				});
 			}
+		},
+
+		_manageQueryMarker: function(latlng) {
+			var marker = L.marker(latlng);
+			
+			this.lastQueryMarker && this.lastQueryMarker.remove();
+
+			this.lastQueryMarker = marker;
+			this.lastQueryMarker.addTo(this.map);
 		},
 
 		zoomToFeature: function(feature) {

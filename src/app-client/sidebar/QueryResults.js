@@ -56,7 +56,6 @@ define([
 
 		_isEmptyAllResults: function(data) {
 			for (var key in data) {
-				console.debug("entro", key, data)
 				if (data[key].features.features.length)
 					return false;
 			}
