@@ -45,4 +45,4 @@
 	url = https://github.com/kriszyp/xstyle.git
 [submodule "src/cbtree"]
 	path = src/cbtree
-	url = git@github.com:nacholore/cbtree.git
+	url = https://github.com/nacholore/cbtree.git
