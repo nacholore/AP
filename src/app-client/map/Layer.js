@@ -83,6 +83,7 @@ define([
 		_getPropertiesL: function() {
 			var props = this._getProperties();
 			props['uppercase'] = this.uppercase;
+			props['maxZoom'] = 21;
 			return props;
 		},
 

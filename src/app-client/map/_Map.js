@@ -73,8 +73,7 @@ define([
 					attributionControl: false,
 					zoom: 12,
 					crs: L.CRS.EPSG4326,
-					uppercase: true,
-					maxZoom: 20
+					uppercase: true
 			}); 
 
 			this.map.on("click", lang.hitch(this, this._getFeatureInfo));
@@ -187,92 +186,5 @@ define([
 		getScale: function() {
 			return L.CRS.EPSG4326.scale(this.getZoom());
 		}
-
-/*
-
-
-		_setBaseLayerAttr: function(layer) {
-			if (this.baseLayer)
-				this.layers.remove(this.baseLayer.id);
-			else {
-//				this.map.zoomToMaxExtent();
-			}
-			this.emit("basemap-changed", layer);
-			
-			layer.addTo(this.map);
-			layer.setZIndex(0);
-
-			this._set("baseLayer", layer);
-		},
-
-
-		_getLayersAttr: function() {
-			return this.layers.query(function(layer){
-					return layer.visible === true;
-				}, {
-					sort: [{
-						attribute: "baseLayer", 
-						descending: true
-					}]
-				}
-			);
-		},
-
-		getLayerById: function(layerID) {
-			return this.layers.get(layerID);
-		},
-
-		_addLayer: function(layer) {
-			layer.addTo(this.map)
-			
-			//if (!layer.baseLayer)
-			//	this.emit("addLayer", layer);
-		},
-
-		_removeLayer: function(layer) {
-			if (!layer.isBaseLayer()) 
-				this.emit("removeLayer", layer);
-			this.map.removeLayer(layer.layer);
-		},
-
-		// Elimina una capa al mapa
-
-
-
-		getLayer: function(id) {
-			return this.layers.get(id);
-		},
-
-		restrictedExtent: null,
-		_setRestrictedExtentAttr: function(bounds) {
-/*			this.map.setOptions({
-				restrictedExtent: bounds
-			});
-			this.restrictedExtent = bounds;
-			this.emit("restrictedExtent-change", bounds);
-		},
-
-		zoomToMaxExtent: function() {
-//			this.map.zoomToMaxExtent();
-			this.emit("zoom-change");
-		},
-
-		// Cambia la restricción del extent
-		_changeBoudingBox: function(item) {
-//			this.map.setOptions({restrictedExtent: item.bounds});
-		},
-
-		_getAttrsOL: function() {
-			var properties = ["projection", "Zoom", "Scale", "Center"];
-			arrayUtils.forEach(properties, function(prop) {
-				this["get" + prop] = function() {
-					return this.map["get"+prop]();
-				};
-			}, this);
-		},
-		
-*/
-
-
 	});
 });
