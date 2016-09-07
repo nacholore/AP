@@ -28,6 +28,7 @@ define([
 		version: "1.1.1",
 		transparent: true,
 		legend: true,
+		maxZoom: 21,
 
 		props: ["opacity", "service", "name", "url", "format", "layers", "srs", "version", "transparent"],
 		constructor: function(args) {
@@ -83,7 +84,7 @@ define([
 		_getPropertiesL: function() {
 			var props = this._getProperties();
 			props['uppercase'] = this.uppercase;
-			props['maxZoom'] = 21;
+			props['maxZoom'] = this.maxZoom;
 			return props;
 		},
 

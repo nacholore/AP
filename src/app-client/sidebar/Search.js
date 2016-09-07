@@ -157,7 +157,7 @@ define([
 
 			var node = domConstruct.create('div', {
 				innerHTML: '<div class="featureRow"><div class="left">' + 
-								'<span class="title">' + obj.properties.code + '</span>' +
+								'<span class="title">' + obj.properties.expediente + '</span>' +
 								'<span class="subtitle">' + obj.properties.titular + '</span>' +
 								'<span class="port">' + obj.properties.port + '</span>' +
 
