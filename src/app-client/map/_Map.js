@@ -74,7 +74,7 @@ define([
 					zoom: 12,
 					crs: L.CRS.EPSG4326,
 					uppercase: true,
-					maxZoom: 18
+					maxZoom: 20
 			}); 
 
 			this.map.on("click", lang.hitch(this, this._getFeatureInfo));
