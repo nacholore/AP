@@ -42,5 +42,6 @@
 		"format": "image/jpeg"
 	},
 	"tiled": true,
+	"maxZoom": 23,
 	"img": "baselayers/cartografia_AP.png"
 }]	

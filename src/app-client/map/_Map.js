@@ -165,9 +165,13 @@ define([
 					ymax: bound[3]
 				}
 				southWest = new L.LatLng(maxBounds.ymin, maxBounds.xmin),
-				northEast = new L.LatLng(maxBounds.ymax, maxBounds.xmax);
+				northEast = new L.LatLng(maxBounds.ymax, maxBounds.xmax),
+				bound = new L.LatLngBounds(southWest, northEast)
+				center = bound.getCenter();
 
-			this.map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+			this.map.setMaxBounds(bound);
+			this.map.fitBounds(bound);
+			//this.setView(center);
 			this.emit("set-max-bounds", bound);
 		},
 
