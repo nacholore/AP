@@ -172,7 +172,7 @@ define([
 			this.map.setMaxBounds(bound);
 			this.map.fitBounds(bound);
 			//this.setView(center);
-			this.emit("set-max-bounds", bound);
+			this.emit("set-max-bounds", maxBounds);
 		},
 
 		getLayers: function() {

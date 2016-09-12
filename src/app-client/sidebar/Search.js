@@ -76,11 +76,11 @@ define([
 
 		_newRequestTextSearch: function(value) {
 			if (value.trim().length > this.minLenght) {
+				this.newQuery.text = value.trim();
 				this._newRequestSearch();
 			} else {
 				this.emit("search-clear-results");
 			}
-			this.newQuery.text = value.trim();
 		},
 
 		_newRequestSearch: function() {
@@ -90,9 +90,10 @@ define([
 			}
 		},
 
-		_newRequestBoundsSearch: function(bounds) {
-			if (!this.lastQuery || this.lastQuery.bounds != bounds.join()) {
-				this.newQuery.bounds = bounds.join();
+		_newRequestBoundsSearch: function(maxBounds) {
+			var bounds = [maxBounds.xmin, maxBounds.ymin, maxBounds.xmax, maxBounds.ymax];
+			if (!this.lastQuery || this.lastQuery.bounds != bounds.join(',')) {
+				this.newQuery.bounds = bounds.join(',');
 				this._newRequestSearch();
 			} else {
 				this.emit("search-clear-results");
