@@ -118,7 +118,7 @@ define([
 		},
 
 		_isPropPhoto: function(key) {
-			return key.match(/foto\d*/);
+			return key.match(/(F|f)oto\d*/);
 		},
 
 		_isPropEmpty: function(value) {
