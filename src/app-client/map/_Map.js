@@ -114,8 +114,8 @@ define([
 					"width": size.x,
 					"height": size.y,
 					"bbox": [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()].join(','),
-					"x": evt.containerPoint.x,
-					"y": evt.containerPoint.y
+					"x": parseInt(evt.containerPoint.x),
+					"y": parseInt(evt.containerPoint.y)
 				};
 			
 			var listDfd = {};

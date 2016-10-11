@@ -47,7 +47,7 @@ define([
 		_createMinimap: function(layer) {
 			this.minimap = new MiniMap(layer, { 
 					toggleDisplay: true,
-					minimized: true
+					minimized: true,
 				}).addTo(this.map.map);
 		},
 
