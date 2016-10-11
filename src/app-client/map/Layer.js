@@ -6,6 +6,7 @@ define([
 	, "dojo/Deferred"
 	, "dojo/io-query"
 	, "leaflet"
+	, "L-WMS"
 ], function (
 	declare
 	, lang
@@ -14,6 +15,7 @@ define([
 	, Deferred
 	, ioQuery
 	, L
+	, WMS
 ) {
 	return declare([Evented], {
 		id: "",
@@ -78,7 +80,7 @@ define([
 		},
 
 		_createSingleLayer: function() {
-			return new L.NonTiledLayer.WMS(this.url, this._getPropertiesL());
+			return new WMS.overlay(this.url, this._getPropertiesL());
 		},
 
 		_getPropertiesL: function() {

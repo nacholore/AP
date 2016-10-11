@@ -28,12 +28,6 @@
 [submodule "src/leaflet-measure"]
 	path = src/leaflet-measure
 	url = https://github.com/ljagis/leaflet-measure.git
-[submodule "src/leaflet-singletilewms"]
-	path = src/leaflet-singletilewms
-	url = https://github.com/ismyrnow/Leaflet.singletilewms.git
-[submodule "src/leaflet-notiled"]
-	path = src/leaflet-notiled
-	url = https://github.com/ptv-logistics/Leaflet.NonTiledLayer.git
 [submodule "src/leaflet-minimap"]
 	path = src/leaflet-minimap
 	url = https://github.com/Norkart/Leaflet-MiniMap.git
@@ -46,3 +40,6 @@
 [submodule "src/cbtree"]
 	path = src/cbtree
 	url = https://github.com/nacholore/cbtree.git
+[submodule "src/leaflet-wms"]
+	path = src/leaflet-wms
+	url = https://github.com/heigeo/leaflet.wms.git

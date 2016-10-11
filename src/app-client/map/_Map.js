@@ -80,7 +80,9 @@ define([
 		},
 	
 		_addLayer: function(layer, index) {
-			layer.getLayerL().addTo(this.map, index);
+			layer.getLayerL().addTo(this.map);
+			if (index == 0)
+				layer.getLayerL().bringToBack();
 			this.emit("layer-added", layer);
 		},
 
@@ -90,6 +92,7 @@ define([
 		},
 
 		_changeBaselayer: function(layer) {
+
 			this.baselayer && this.removeLayer(this.baselayer);
 
 			this.emit("add-layer", layer, 0);

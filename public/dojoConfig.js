@@ -27,6 +27,10 @@ var dojoConfig = {
 			location: "leaflet-notiled/",
 			main: "NonTiledLayer"
 		},{
+			name: "L-WMS",
+			location: "leaflet-wms/",
+			main: "leaflet.wms"
+		},{
 			name: "L-minimap",
 			location: "leaflet-minimap/dist",
 			main: "Control.MiniMap.min"
