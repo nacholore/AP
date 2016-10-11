@@ -81,7 +81,8 @@ define([
 				// Se descartan los nodos carpetas
 				if (item.type === 'layer') {
 					if (item.checked) {
-						var layer = new Layer(item);
+
+						var layer = new Layer(lang.mixin({transparent: true }, item));
 						this.map.addLayer(layer);
 					} else {
 						this.map.removeLayer(item.id);

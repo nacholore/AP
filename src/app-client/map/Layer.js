@@ -26,7 +26,7 @@ define([
 		srs: "EPSG:4326",
 		uppercase: true,
 		version: "1.1.1",
-		transparent: true,
+		transparent: false,
 		legend: true,
 		maxZoom: 21,
 
@@ -85,18 +85,24 @@ define([
 			var props = this._getProperties();
 			props['uppercase'] = this.uppercase;
 			props['maxZoom'] = this.maxZoom;
+
 			return props;
 		},
 
 		_getProperties: function() {
-			return {
+			var props = {
 				format: this.get("format"),
 				service: this.get("service"),
 				version: this.get("version"),
 				layers: this.get("layers"),
-				srs: this.get("srs"),
-				transparent: this.get("transparent")
+				srs: this.get("srs")
 			};
+
+			if (this.transparent) {
+				props["transparent"] = true;
+			}
+			
+			return props;
 		},
 
 		isBaseLayer: function() {

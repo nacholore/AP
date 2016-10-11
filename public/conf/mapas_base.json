@@ -44,4 +44,16 @@
 	"tiled": true,
 	"maxZoom": 23,
 	"img": "baselayers/cartografia_AP.png"
+},{
+	"id": "Catastro",
+	"label": "DG del Catastro",
+	"url": "http://ovc.catastro.meh.es/Cartografia/WMS/ServidorWMS.aspx",
+	"layersInfo": {
+		"layers": ["Catastro"],
+		"version": "1.1.1",
+		"format": "image/jpeg"
+	},
+	"tiled": false,
+	"maxZoom": 23,
+	"img": "baselayers/cartografia.png"
 }]	
