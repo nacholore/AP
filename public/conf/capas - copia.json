@@ -4,10 +4,6 @@
 		"name": "Capas",
 		"type": "root"
 	},
-
-
-
-	
 	{
 		"id": "01_puep",
 		"name": "01 Puep",
@@ -100,14 +96,10 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Capa.-</b></div><div>{layer}</div></div>",
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
+			"<div class='form-group'><div>Capa</div><div>{layer}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
-	
-	
-	
-	
 	{
 		"id": "02_zonificacion",
 		"name": "02 Zonificación",
@@ -140,9 +132,10 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div><b style='color: red;' >{tipo}</b></div></div>",
-			"<div class='form-group'><div><b>Área.-</b></div><div>{area} m<sup>2</sup></div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Área</div><div>{area} m<sup>2</sup></div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Valor</div><div>{valor_m} €/m</div></div>"
 		]
 	},
 	{
@@ -175,6 +168,7 @@
 			"<div class='form-group'><div><b>Superficie.-</b></div><div>{Superficie} m<sup>2</sup></div></div>"
 		]
 	},
+	
 	{
 		"id": "Longitud_calados",
 		"name": "Longitudes y calados",
@@ -193,10 +187,8 @@
 	},
 	
 	
-	
-	
 	{
-		"id": "03_plan_especial",
+		"id": "plan_especial",
 		"name": "03 Plan Especial",
 		"type": "folder",
 		"parent": "layers"
@@ -205,7 +197,7 @@
 		"id": "PeUsos",
 		"name": "Usos y parámetros",
 		"type": "layer",
-		"parent": "03_plan_especial",
+		"parent": "plan_especial",
 		"layersInfo": {
 			"layers": ["AutoridadPortuaria:PeUsos"],
 			"transparent": true
@@ -216,59 +208,9 @@
 			"<div class='form-group'><div><b>Actividad.-</b></div><div>{actividad}</div></div>"
 		]
 	},
-	
-	
-	
-	
 	{
-		"id": "04_planes_autoproteccion",
-		"name": "04 Planes de autoprotección",
-		"type": "folder",
-		"parent": "layers"
-	},
-	{
-		"id": "planes_autoproteccion",
-		"name": "Planes de autoprotección",
-		"type": "layer",
-		"parent": "04_planes_autoproteccion",
-		"layersInfo": {
-			"transparent": true,
-			"tiled": false,
-			"layers": ["AutoridadPortuaria:Concesiones"]
-		},
-		"infoTemplate": [
-			"<div class='form-group'><div><b>Expediente nº.-</b></div><div><b style='color: red;' >{Expediente}{exp_sub}</b></div></div>",
-			"<div class='form-group'><div><b>Estado.-</b></div><div>{Estado}</div></div>",
-			"<div class='form-group'><div><b>Titular.-</b></div><div>{Titular}</div></div>",
-			"<div class='form-group'><div><b>NIF.-</b></div><div>{nif}</div></div>",
-			"<div class='form-group'><div><b>Actividad.-</b></div><div>{actividad}</div></div>",
-			"<div class='form-group'><div><b> Información.-</b></div><div><a href='{pe_exel}' target='_blank'>Enlace</a></div></div><div></div><br>"
-		]
-	},
-	{
-		"id": "P_A_Contraincendios",
-		"name": "Contraincendios",
-		"type": "layer",
-		"parent": "04_planes_autoproteccion",
-		"layersInfo": {
-			"layers": ["AutoridadPortuaria:Contraincendios"],
-			"transparent": true
-		},
-		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Diámetro.-</b></div><div>{diametro}</div></div>",
-			"<div class='form-group'><div><b>Observaciones.-</b></div><div>{observacio}</div></div>",
-			"<div class='form-group'><div><b>Descripción.-</b></div><div>{descripcion}</div></div>"
-		]
-	},
-	
-	
-	
-	
-	{
-		"id": "05_instalaciones",
-		"name": "05 Instalaciones, Vías y Obras",
+		"id": "04_instalaciones",
+		"name": "04 Instalaciones, Vías y Obras",
 		"type": "folder",
 		"parent": "layers"
 	},
@@ -276,7 +218,7 @@
 		"id": "03_instalaciones_electricas",
 		"name": "Instalaciones eléctricas",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "Alumbrado",
@@ -288,37 +230,37 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>", 
-			"<div class='form-group'><div><b>Coordenadas (X,Y).-</b></div><div>{x} - {y}</div></div>", 
-			"<div class='form-group'><div><b>Centro origen.-</b></div><div>{origen_cen}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Centro origen</div><div>{origen_cen}</div></div>",
 			"<fieldset class='lighter'><legend>Tapa</legend>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{tapa_medid}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{tapa_mater}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{tapa_conse}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conse}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Registro</legend>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{reg_tipo}</div></div>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{reg_medida}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{reg_materi}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{reg_cons}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{reg_tipo}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{reg_medida}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{reg_materi}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{reg_cons}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Conducto</legend>",
-			"<div class='form-group'><div><b>Unidad.-</b></div><div>{cond_unid}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{cond_mat}</div></div>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{cond_medid}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{cond_cons}</div></div>",
+			"<div class='form-group'><div>Unidad</div><div>{cond_unid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{cond_mat}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{cond_medid}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{cond_cons}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Base</legend>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{base_tipo}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{base_mater}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{base_cons}</div></div>", 
+			"<div class='form-group'><div>Tipo</div><div>{base_tipo}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{base_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{base_cons}</div></div>", 
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Alumbrado</legend>",
-			"<div class='form-group'><div><b>Marca.-</b></div><div>{lum_marca}</div></div>",
-			"<div class='form-group'><div><b>Potencia.-</b></div><div>{lum_pot}</div></div>",  
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{lum_cons}</div></div>",
-			"<div class='form-group'><div><b>Conexiones.-</b></div><div>{conexiones}</div></div>",
+			"<div class='form-group'><div>Marca</div><div>{lum_marca}</div></div>",
+			"<div class='form-group'><div>Potencia</div><div>{lum_pot}</div></div>",  
+			"<div class='form-group'><div>Conservación</div><div>{lum_cons}</div></div>",
+			"<div class='form-group'><div>Conexiones</div><div>{conexiones}</div></div>",
 			"</fieldset>"
 		]
 	},
@@ -332,27 +274,27 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>", 
-			"<div class='form-group'><div><b>Registro.-</b></div><div>{registro}</div></div>",
-			"<div class='form-group'><div><b>Coordenadas (X,Y).-</b></div><div>{x} - {y}</div></div>", 
-			"<div class='form-group'><div><b>Origen centro mando.-</b></div><div>{origen_centromando}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>", 
+			"<div class='form-group'><div>Registro</div><div>{registro}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Origen centro mando</div><div>{origen_centromando}</div></div>",
 			"<fieldset class='lighter'><legend>Tapa</legend>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{tapa_medidas_cm}cm</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{tapa_material}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{tapa_conservacion}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_material}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conservacion}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Registro</legend>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{registro_tipo}</div></div>",
-			"<div class='form-group'><div><b>Medidas.-</b></div><div>{registro_medidas_cm}cm</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{registro_material}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{registro_tipo}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{registro_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{registro_material}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Conducciones</legend>",
-			"<div class='form-group'><div><b>Unidades.-</b></div><div>{conducciones_unidades}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{conducciones_material}</div></div>",
-			"<div class='form-group'><div><b>Medidas.-</b></div><div>{conducciones_medidas_cm}cm</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{conducciones_conservacion}</div></div>",
-			"<div class='form-group'><div><b>Observaciones.-</b></div><div>{observaciones}</div></div>",
+			"<div class='form-group'><div>Unidades</div><div>{conducciones_unidades}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{conducciones_material}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{conducciones_medidas_cm}cm</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conducciones_conservacion}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{observaciones}</div></div>",
 			"</fieldset>"
 		]
 	},
@@ -366,9 +308,9 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Longitud.-</b></div><div>{longitud}m</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>" 
+			"<div class='form-group'><div>Longitud</div><div>{longitud}m</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>" 
 		]
 	},
 	{
@@ -381,17 +323,17 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Observaciones.-</b></div><div>{Observaciones}</div></div>",
-			"<div class='form-group'><div><b>Longitud.-</b></div><div>{Longitud}m</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{Observaciones}</div></div>",
+			"<div class='form-group'><div>Longitud</div><div>{Longitud}m</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
 		"id": "04_abastecimiento_aguas",
 		"name": "Abastecimiento de aguas",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "Abastecimientos",
@@ -403,30 +345,30 @@
 		},
 		"parent": "04_abastecimiento_aguas",
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Clase.-</b></div><div>{clase}</div></div>",
-			"<div class='form-group'><div><b>Zonas.-</b></div><div>{zonas}</div></div>",
-			"<div class='form-group'><div><b>Registro.-</b></div><div>{registro}</div></div>",
-			"<div class='form-group'><div><b>Subregistro.-</b></div><div>{subregistr}</div></div>",
-			"<div class='form-group'><div><b>Coordenadas (X,Y).-</b></div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Clase</div><div>{clase}</div></div>",
+			"<div class='form-group'><div>Zonas</div><div>{zonas}</div></div>",
+			"<div class='form-group'><div>Registro</div><div>{registro}</div></div>",
+			"<div class='form-group'><div>Subregistro</div><div>{subregistr}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{x} - {y}</div></div>", 
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
 			"<fieldset class='lighter'><legend>Tapa</legend>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{tap_med}</div></div>", 
-			"<div class='form-group'><div><b>Material.-</b></div><div>{tap_mat}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{tap_cons}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{tap_med}</div></div>", 
+			"<div class='form-group'><div>Material</div><div>{tap_mat}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tap_cons}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Elemento</legend>",
-			"<div class='form-group'><div><b>Unidad.-</b></div><div>{ele_uni}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{ele_tip}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{ele_mat}</div></div>",
-			"<div class='form-group'><div><b>Diámetro.-</b></div><div>{ele_dia}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{ele_con}</div></div>",
+			"<div class='form-group'><div>Unidad</div><div>{ele_uni}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{ele_tip}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{ele_mat}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{ele_dia}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{ele_con}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Conducto</legend>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{con_mat}</div></div>",
-			"<div class='form-group'><div><b>Diámetro.-</b></div><div>{con_dia}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{con_con}</div></div>",
-			"<div class='form-group'><div><b>Poste.-</b></div><div>{post_condu}</div></div>",
-			"<div class='form-group'><div><b>Observaciones.-</b></div><div>{obs}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{con_mat}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{con_dia}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{con_con}</div></div>",
+			"<div class='form-group'><div>Poste</div><div>{post_condu}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{obs}</div></div>",
 			"</fieldset>"
 	    ]
 	},
@@ -440,10 +382,10 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{material}</div></div>",
-			"<div class='form-group'><div><b>Diámetro m.-</b></div><div>{diametro_m}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>"
+			"<div class='form-group'><div>Material</div><div>{material}</div></div>",
+			"<div class='form-group'><div>Diámetro m</div><div>{diametro_m}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
@@ -456,23 +398,23 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Código.-</b></div><div>{codigo}</div></div>",
-			"<div class='form-group'><div><b>Zona.-</b></div><div>{zona}</div></div>",
-			"<div class='form-group'><div><b>Inventario.-</b></div><div>{inventario}</div></div>",
-			"<div class='form-group'><div><b>Nº serie.-</b></div><div>{numero_ser}</div></div>",
-			"<div class='form-group'><div><b>Calibre.-</b></div><div>{calibre}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{conservaci}</div></div>",
-			"<div class='form-group'><div><b>Situación.-</b></div><div>{situacion}</div></div>",
-			"<div class='form-group'><div><b>Usuario.-</b></div><div>{usuario}</div></div>",
-			"<div class='form-group'><div><b>Observación.-</b></div><div>{observacio}</div></div>"	
+			"<div class='form-group'><div>Código</div><div>{codigo}</div></div>",
+			"<div class='form-group'><div>Zona</div><div>{zona}</div></div>",
+			"<div class='form-group'><div>Inventario</div><div>{inventario}</div></div>",
+			"<div class='form-group'><div>Nº serie</div><div>{numero_ser}</div></div>",
+			"<div class='form-group'><div>Calibre</div><div>{calibre}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conservaci}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{situacion}</div></div>",
+			"<div class='form-group'><div>Usuario</div><div>{usuario}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"	
 		]
 	},
 	{
 		"id": "05_telecomunicaciones",
 		"name": "Telecomunicaciones",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "Circuitos",
@@ -484,8 +426,8 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
@@ -498,20 +440,20 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Medidas.-</b></div><div>{medidas}</div></div>",
-			"<div class='form-group'><div><b>Situación.-</b></div><div>{situacion}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{conservaci}</div></div>",
-			"<div class='form-group'><div><b>Coordenadas (X,Y).-</b></div><div>{utm_x} - {utm_y}</div></div>",
-			"<div class='form-group'><div><b>Observación.-</b></div><div>{observacio}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{medidas}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{situacion}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{conservaci}</div></div>",
+			"<div class='form-group'><div>Coordenadas (X,Y)</div><div>{utm_x} - {utm_y}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
 		"id": "Contraincendios",
 		"name": "Contraincendios",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "_Contraincendios",
@@ -523,18 +465,18 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Diámetro.-</b></div><div>{diametro}</div></div>",
-			"<div class='form-group'><div><b>Observaciones.-</b></div><div>{observacio}</div></div>",
-			"<div class='form-group'><div><b>Descripción.-</b></div><div>{descripcion}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Diámetro</div><div>{diametro}</div></div>",
+			"<div class='form-group'><div>Observaciones</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Descripción</div><div>{descripcion}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
 		"id": "16_saneamiento",
 		"name": "Saneamiento",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "Sanea_conducciones",
@@ -546,8 +488,8 @@
 			"layers": ["AutoridadPortuaria:Sanea_conducciones"]	
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]		
 	},
 	{
@@ -560,27 +502,27 @@
 			"layers": ["AutoridadPortuaria:Sanea_elementos"]	
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Nº registro.-</b></div><div>{num_regist}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Nº registro.-</b></div><div>{num_regist}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
+			"<div class='form-group'><div>Nº registro</div><div>{num_regist}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Nº registro</div><div>{num_regist}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>",
 			"<fieldset class='lighter'><legend>Tapa</legend>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{tapa_medid}</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{tapa_mater}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{tapa_conse}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{tapa_medid}</div></div>",
+			"<div class='form-group'><div>Material</div><div>{tapa_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{tapa_conse}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Registro</legend>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{reg_tipo}</div></div>",
-			"<div class='form-group'><div><b>Altura.-</b></div><div>{reg_altcm}cm</div></div>",
-			"<div class='form-group'><div><b>Medidas.-</b></div><div>{reg_medcm}cm</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{reg_materi}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{reg_conser}</div></div>",
+			"<div class='form-group'><div>Tipo</div><div>{reg_tipo}</div></div>",
+			"<div class='form-group'><div>Altura</div><div>{reg_altcm}cm</div></div>",
+			"<div class='form-group'><div>Medidas</div><div>{reg_medcm}cm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{reg_materi}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{reg_conser}</div></div>",
 			"</fieldset>",
 			"<fieldset class='lighter'><legend>Conducto</legend>",
-			"<div class='form-group'><div><b>Medida.-</b></div><div>{cond_medmm}mm</div></div>",
-			"<div class='form-group'><div><b>Material.-</b></div><div>{cond_mater}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{cond_cons}</div></div>",
+			"<div class='form-group'><div>Medida</div><div>{cond_medmm}mm</div></div>",
+			"<div class='form-group'><div>Material</div><div>{cond_mater}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{cond_cons}</div></div>",
 			"</fieldset>"
 		]		
 	},
@@ -588,7 +530,7 @@
 		"id": "Viario",
 		"name": "Vías de servicio",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "_Viario",
@@ -600,8 +542,8 @@
 			"transparent": true
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Capa.-</b></div><div>{layer}</div></div>",
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
+			"<div class='form-group'><div>Capa</div><div>{layer}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
@@ -620,7 +562,7 @@
 			"layers": ["AutoridadPortuaria:Senyalizacion_horizontal"]
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
@@ -633,16 +575,16 @@
 			"layers": ["AutoridadPortuaria:Senyalizacion_verticales"]
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>",
-			"<div class='form-group'><div><b>Situación.-</b></div><div>{Situacion}</div></div>",
-			"<div class='form-group'><div><b>Zonificación.-</b></div><div>{Zonificacion}</div></div>",
-			"<div class='form-group'><div><b>Conservación.-</b></div><div>{Conservacion}</div></div>",
-			"<div class='form-group'><div><b>Altura.-</b></div><div>{Altura}m</div></div>",
-			"<div class='form-group'><div><b>Perfil.-</b></div><div>{Perfil_mm}</div></div>",
-			"<div class='form-group'><div><b>Dimensiones.-</b></div><div>{Dimensiones}</div></div>",
-			"<div class='form-group'><div><b>Señal.-</b></div><div>{Señal}</div></div>",
-			"<div class='form-group'><div><b>Código.-</b></div><div>{Codigo}</div></div>",
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Situación</div><div>{Situacion}</div></div>",
+			"<div class='form-group'><div>Zonificación</div><div>{Zonificacion}</div></div>",
+			"<div class='form-group'><div>Conservación</div><div>{Conservacion}</div></div>",
+			"<div class='form-group'><div>Altura</div><div>{Altura}m</div></div>",
+			"<div class='form-group'><div>Perfil</div><div>{Perfil_mm}</div></div>",
+			"<div class='form-group'><div>Dimensiones</div><div>{Dimensiones}</div></div>",
+			"<div class='form-group'><div>Señal</div><div>{Señal}</div></div>",
+			"<div class='form-group'><div>Código</div><div>{Codigo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
@@ -655,25 +597,25 @@
 			"layers": ["AutoridadPortuaria:Jardines"]
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Área.-</b></div><div>{area}</div></div>",
-			"<div class='form-group'><div><b>Pradera co.-</b></div><div>{pradera_co}</div></div>",
-			"<div class='form-group'><div><b>Pradera si.-</b></div><div>{pradera_si}</div></div>",
-			"<div class='form-group'><div><b>Arboles.-</b></div><div>{arboles}</div></div>",
-			"<div class='form-group'><div><b>Palmeras.-</b></div><div>{palmeras}</div></div>",
-			"<div class='form-group'><div><b>Arbustos.-</b></div><div>{arbustos}</div></div>",
-			"<div class='form-group'><div><b>Setos.-</b></div><div>{setos}</div></div>",
-			"<div class='form-group'><div><b>Catus.-</b></div><div>{cactus}</div></div>",
-			"<div class='form-group'><div><b>Dragos.-</b></div><div>{dragos}</div></div>",
-			"<div class='form-group'><div><b>Cipreces.-</b></div><div>{cipreces}</div></div>",
-			"<div class='form-group'><div><b>Observación.-</b></div><div>{observacio}</div></div>",
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
+			"<div class='form-group'><div>Área</div><div>{area}</div></div>",
+			"<div class='form-group'><div>Pradera co</div><div>{pradera_co}</div></div>",
+			"<div class='form-group'><div>Pradera si</div><div>{pradera_si}</div></div>",
+			"<div class='form-group'><div>Arboles</div><div>{arboles}</div></div>",
+			"<div class='form-group'><div>Palmeras</div><div>{palmeras}</div></div>",
+			"<div class='form-group'><div>Arbustos</div><div>{arbustos}</div></div>",
+			"<div class='form-group'><div>Setos</div><div>{setos}</div></div>",
+			"<div class='form-group'><div>Catus</div><div>{cactus}</div></div>",
+			"<div class='form-group'><div>Dragos</div><div>{dragos}</div></div>",
+			"<div class='form-group'><div>Cipreces</div><div>{cipreces}</div></div>",
+			"<div class='form-group'><div>Observación</div><div>{observacio}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
 	{
 		"id": "13_obras_de_defensa",
 		"name": "Obras de defensa",
 		"type": "folder",
-		"parent": "05_instalaciones"
+		"parent": "04_instalaciones"
 	},
 	{
 		"id": "Obras_defensa",
@@ -707,31 +649,8 @@
 		]	
 	},
 	{
-		"id": "Actuaciones",
-		"name": "Actuaciones",
-		"type": "folder",
-		"parent": "05_instalaciones"
-	},
-	{
-		"id": "Drenaje_Alegria_MuelleNorte",
-		"name": "Drenaje Barrio de La Alegría y Muelle Norte",
-		"type": "layer",
-		"parent": "Actuaciones",
-		"layersInfo": {
-			"layers": ["AutoridadPortuaria:drenaje_barrioalegria_muellenorte"],
-			"transparent": true
-		},
-		"infoTemplate": [
-			"<div class='form-group'><div><b>Características.-</b></div><div>{nombre}</div></div>"
-		]
-	},
-	
-	
-	
-	
-	{
-		"id": "06_Balizamiento",
-		"name": "06 Señales marítimas",
+		"id": "09_Balizamiento",
+		"name": "05 Señales marítimas",
 		"type": "folder",
 		"parent": "layers"
 	},
@@ -739,7 +658,7 @@
 		"id": "Balizamiento",
 		"name": "Balizamiento",
 		"type": "layer",
-		"parent": "06_Balizamiento",
+		"parent": "09_Balizamiento",
 		"layersInfo": {
 			"transparent": true,
 			"layers": ["AutoridadPortuaria:Balizamiento"]
@@ -761,13 +680,9 @@
 			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>"
 		]
 	},
-	
-	
-	
-	
 	{
-		"id": "07_Concesiones",
-		"name": "07 Dominio Público",
+		"id": "Concesiones",
+		"name": "06 Dominio Público",
 		"type": "folder",
 		"parent": "layers"
 	},	
@@ -775,7 +690,7 @@
 		"id": "dominio_publico",
 		"name": "Dominio Público",
 		"type": "folder",
-		"parent": "07_Concesiones"
+		"parent": "Concesiones"
 	},
 	{
 		"id": "CONCESIONES_nivel_0",
@@ -790,12 +705,13 @@
 		"infoTemplate": [
 			"<div class='form-group'><div><b>Referencia.-</b></div><div>{id}</div></div>",
 			"<div class='form-group'><div><b>Estado.-</b></div><div>{Estado}</div></div>",
-			"<div class='form-group'><div><b>Expediente nº.-</b></div><div><b style='color: red;' >{Expediente}{exp_sub}</b></div></div>",
+			"<div class='form-group'><div><b>Expediente nº.-</b></div><div><b style='color: red;' >{Expediente}</b></div></div>",
 			"<div class='form-group'><div><b>Titular.-</b></div><div>{Titular}</div></div>",
 			"<div class='form-group'><div><b>Objeto.-</b></div><div>{Objeto}</div></div>",
 			"<div class='form-group'><div><b>Superficie.-</b></div><div>{Superficie} m²</div></div>",
 			"<div class='form-group'><div><b>Inicio.-</b></div><div>{Inicio}</div></div>",
-			"<div class='form-group'><div><b>Final.-</b></div><div>{Final}</div></div>",			
+			"<div class='form-group'><div><b>Final.-</b></div><div>{Final}</div></div>",
+			"<div class='form-group'><div><b>Valor terreno/m.-</b></div><div>{valor_terr_m} €/m²</div></div>",			
 			"<div class='form-group'><div><b>Ref. Catastral.-</b></div><div>{REF_CATASTRAL}</div></div>",
 			"<div class='form-group'><div><b>Docum./Planos.-</b></div><div><a href='{Edificios}' target='_blank'>Enlace</a></div></div><div></div><br>"
 		]
@@ -813,42 +729,22 @@
 		"infoTemplate": [
 			"<div class='form-group'><div><b>Referencia.-</b></div><div>{id}</div></div>",
 			"<div class='form-group'><div><b>Estado.-</b></div><div>{Estado}</div></div>",
-			"<div class='form-group'><div><b>Expediente nº.-</b></div><div><b style='color: red;' >{Expediente}{exp_sub}</b></div></div>",
+			"<div class='form-group'><div><b>Expediente nº.-</b></div><div><b style='color: red;' >{Expediente}</b></div></div>",
 			"<div class='form-group'><div><b>Titular.-</b></div><div>{Titular}</div></div>",
 			"<div class='form-group'><div><b>Objeto.-</b></div><div>{Objeto}</div></div>",
 			"<div class='form-group'><div><b>Superficie.-</b></div><div>{Superficie} m²</div></div>",
 			"<div class='form-group'><div><b>Inicio.-</b></div><div>{Inicio}</div></div>",
-			"<div class='form-group'><div><b>Final.-</b></div><div>{Final}</div></div>",			
+			"<div class='form-group'><div><b>Final.-</b></div><div>{Final}</div></div>",
+			"<div class='form-group'><div><b>Valor terreno/m.-</b></div><div>{valor_terr_m} €/m²</div></div>",			
 			"<div class='form-group'><div><b>Ref. Catastral.-</b></div><div>{REF_CATASTRAL}</div></div>",
 			"<div class='form-group'><div><b>Docum./Planos.-</b></div><div><a href='{Edificios}' target='_blank'>Enlace</a></div></div><div></div><br>"
 		]
 	},
 	{
-		"id": "transito",
-		"name": "Transito",
-		"type": "folder",
-		"parent": "07_Concesiones"
-	},
-	{
-		"id": "07_transito_Maniobra",
-		"name": "Zonas de Transito y Maniobra",
-		"type": "layer",
-		"parent": "transito",
-		"layersInfo": {
-			"layers": ["AutoridadPortuaria:Transito_Maniobra"],
-			"transparent": true
-		},
-		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Zona.-</b></div><div><b style='color: red;' >{id} - {Objeto}</b></div></div>",
-			"<div class='form-group'><div><b>Superficie.-</b></div><div>{Superficie} m<sup>2</sup></div></div>"
-		]
-	},	
-	{
 		"id": "valor_terrenos",
 		"name": "Valor Terrenos",
 		"type": "folder",
-		"parent": "07_Concesiones"
+		"parent": "Concesiones"
 	},
 		{
 		"id": "valoracion",
@@ -868,11 +764,9 @@
 	},
 	
 	
-	
-	
 	{
-		"id": "08_Inmuebles",
-		"name": "08 Inmuebles",
+		"id": "Inmuebles",
+		"name": "07 Inmuebles",
 		"type": "layer",
 		"parent": "layers",
 		"layersInfo": {
@@ -880,18 +774,14 @@
 			"layers": ["AutoridadPortuaria:Inmuebles"]
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Denominación.-</b></div><div>{Denominacion}</div></div>",
-			"<div class='form-group'><div><b>Subzona.-</b></div><div>{Subzona}</div></div>"
+			"<div class='form-group'><div>Denominación</div><div>{Denominacion}</div></div>",
+			"<div class='form-group'><div>Subzona</div><div>{Subzona}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]
 	},
-	
-	
-	
-	
 	{
-		"id": "09_Plan_de_proteccion",
-		"name": "09 Plan de protección",
+		"id": "Plan_de_proteccion",
+		"name": "08 Plan de protección",
 		"type": "layer",
 		"parent": "layers",
 		"layersInfo" : {
@@ -899,17 +789,13 @@
 			"layers": ["AutoridadPortuaria:Plan_de_proteccion"]	
 		},
 		"infoTemplate": [
-			"<div class='form-group'><div><b>Puerto.-</b></div><div>{Puerto}</div></div>",
-			"<div class='form-group'><div><b>Tipo.-</b></div><div>{tipo}</div></div>"
+			"<div class='form-group'><div>Tipo</div><div>{tipo}</div></div>",
+			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]	
 	},
-	
-	
-	
-	
 	{
-		"id": "10_batimetrias",
-		"name": "10 Batimetrías",
+		"id": "15_batimetrias",
+		"name": "09 Batimetrías",
 		"type": "layer",
 		"parent": "layers",
 		"layersInfo" : {
@@ -921,13 +807,9 @@
 			"<div class='form-group'><div>Puerto</div><div>{Puerto}</div></div>"
 		]		
 	},
-	
-	
-	
-	
 	{
-		"id": "11_Historico",
-		"name": "11 Histórico",
+		"id": "17_Historico",
+		"name": "10 Histórico",
 		"type": "folder",
 		"parent": "layers"
 	},
@@ -935,7 +817,7 @@
 		"id": "limitesH",
 		"name": "Límites",
 		"type": "layers",
-		"parent": "11_Historico"
+		"parent": "17_Historico"
 	},	
 	{
 		"id": "Limite_1865",
